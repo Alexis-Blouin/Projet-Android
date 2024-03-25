@@ -2,9 +2,13 @@
     <string name="app_name" translatable="false">TRACTOPEL</string>
     <string name="changer_contrôles">Changer Contrôle</string>
     <string name="retourner_au_test_connection">Retour au test de connexion</string>
-    <string name="test_connexion_titre_activite">Test de connexion</string>
-    <string name="connection_instructions">Cliquez sur le bouton suivant pour tester la connexion au Robot</string>
-    <string name="connection_test_bouton_texte">Tester la connexion</string>
+    <string name="titre_activite_test_connexion">Test de connexion</string>
+    <string name="connexion_instructions">Cliquez sur le bouton suivant pour tester la connexion au Robot</string>
+    <string name="connexion_test_bouton_texte">Tester la connexion</string>
     <string name="test_connection_reussi">Test de connexion réussi</string>
     <string name="test_connexion_echoue">Test de connexion échoué</string>
+    <string name="controle_plateforme">Contrôler la plateforme</string>
+    <string name="controle_bras">Contrôler le bras</string>
+    <string name="titre_activite_controle_plateforme">Contôle de la plateforme</string>
+    <string name="titre_activite_controle_bras">Contrôle du bras</string>
 </resources>

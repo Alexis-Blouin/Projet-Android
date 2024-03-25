@@ -9,46 +9,71 @@
     <include
         android:id="@+id/include"
         layout="@layout/toolbar_layout"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="36dp" />
 
     <Button
         android:id="@+id/testConnexionBouton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="LancerTestConnection"
-        android:text="@string/connection_test_bouton_texte"
+        android:text="@string/connexion_test_bouton_texte"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/testConnectionInstructionsLabel"
-        app:layout_constraintVertical_bias="0.089" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <TextView
         android:id="@+id/testConnectionInstructionsLabel"
         android:layout_width="259dp"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/connection_instructions"
         android:gravity="center_horizontal|center_vertical"
+        android:padding="5dp"
+        android:text="@string/connexion_instructions"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448" />
+        app:layout_constraintVertical_bias="0.244" />
 
     <TextView
-        android:id="@+id/resultatTestConnectionLabel"
+        android:id="@+id/resultatTestConnectionTextview"
         android:layout_width="200dp"
         android:layout_height="42dp"
         android:gravity="center_horizontal|center_vertical"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.701" />
+        app:layout_constraintTop_toBottomOf="@+id/testConnexionBouton"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <Button
+        android:id="@+id/controlerPlateforme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:enabled="false"
+        android:onClick="LancerControlePlateforme"
+        android:text="@string/controle_plateforme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultatTestConnectionTextview" />
+
+    <Button
+        android:id="@+id/controlerBras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
+        android:onClick="LancerControleBras"
+        android:text="@string/controle_bras"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/controlerPlateforme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
