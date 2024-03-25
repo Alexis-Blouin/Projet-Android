@@ -5,7 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Base.Theme.TRACTOPEL" parent="Theme.Design.Light.NoActionBar">
+    <style name="Base.Theme.TRACTOPEL" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
          <item name="colorPrimary">@color/colorPrimary</item>
@@ -34,5 +34,5 @@
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
     </style>
-<!--    Code de Maxence SABATIER -->
+    <!-- Code transféré par Maxence SABATIER -->
 </resources>
