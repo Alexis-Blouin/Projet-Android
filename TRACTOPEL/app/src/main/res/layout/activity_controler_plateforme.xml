@@ -20,7 +20,7 @@
         android:textAlignment="center"
         android:contentDescription="@string/bouton_droite_plateforme"
         app:cornerRadius="15sp"
-        app:icon="@android:drawable/ic_media_play"
+        app:icon="@drawable/arrow_right"
         app:iconSize="70sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
