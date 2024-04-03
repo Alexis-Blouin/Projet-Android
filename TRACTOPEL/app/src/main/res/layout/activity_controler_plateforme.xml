@@ -9,24 +9,76 @@
     <include
         android:id="@+id/include"
         layout="@layout/toolbar_layout"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/boutonDroite"
         style="@style/IconOnlyButton"
         android:layout_width="75sp"
         android:layout_height="75sp"
-        android:textAlignment="center"
+        android:layout_margin="5sp"
         android:contentDescription="@string/bouton_droite_plateforme"
+        android:textAlignment="center"
         app:cornerRadius="15sp"
         app:icon="@drawable/arrow_right"
         app:iconSize="70sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/boutonGauche"
+        style="@style/IconOnlyButton"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"
+        android:contentDescription="@string/bouton_gauche_plateforme"
+        android:textAlignment="center"
+        app:cornerRadius="15sp"
+        app:icon="@drawable/arrow_left"
+        app:iconSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/boutonBas"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/boutonHaut"
+        style="@style/IconOnlyButton"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"
+        android:contentDescription="@string/bouton_haut_plateforme"
+        android:textAlignment="center"
+        app:cornerRadius="15sp"
+        app:icon="@drawable/arrow_up"
+        app:iconSize="70sp"
+        app:layout_constraintBottom_toTopOf="@+id/boutonGauche"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/boutonBas"
+        style="@style/IconOnlyButton"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"
+        android:contentDescription="@string/bouton_bas_plateforme"
+        android:textAlignment="center"
+        app:cornerRadius="15sp"
+        app:icon="@drawable/arrow_down"
+        app:iconSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boutonDroite"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,4 +12,7 @@
     <string name="titre_activite_controle_plateforme">Contôle de la plateforme</string>
     <string name="titre_activite_controle_bras">Contrôle du bras</string>
     <string name="bouton_droite_plateforme">Tourner à droite</string>
+    <string name="bouton_gauche_plateforme">Tourner à gauche</string>
+    <string name="bouton_haut_plateforme">Avancer</string>
+    <string name="bouton_bas_plateforme">Reculer</string>
 </resources>
