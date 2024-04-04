@@ -76,31 +76,6 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controler_plateforme);
 
-//        try
-//        {
-//            //here you must put your computer's IP address.
-//            InetAddress serverAddr = InetAddress.getByName("192.168.0.10");
-//
-//            Log.d("TCP Client", "C: Connecting...");
-//
-//            //create a socket to make the connection with the server
-//            socket = new Socket(serverAddr, 1444);
-//        }
-//        catch (Exception e) {
-//            Log.e("TCP", "C: Error", e);
-//        }
-
-
-//        try {
-//            SendToSocket = socket.getOutputStream();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        try {
-//            GetFromSocket = socket.getInputStream();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -149,74 +124,40 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     }
 
 
-//    public void buttonRightPressed(View view) {
-//        if (view.isPressed())
-//        {
-//            Log.d(TAG, "Button right is pressed");
-//        }
-//        if (view.isFocused())
-//        {
-//            Log.d(TAG, "Button right is focused");
-//        }
-//        if (view.isHovered())
-//        {
-//            Log.d(TAG, "Button right is hovered");
-//        }
-//    }
-
-
-
     View.OnTouchListener DirectionButtonsListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
 
             String id = v.getResources().getResourceEntryName(v.getId());
 
-            //DEBUG
-            if (event.getAction() == MotionEvent.ACTION_DOWN && id.equals("boutonHaut")){
-                Log.wtf("TEST", "Bouton "+id+" pressé in socket if");
-                TheThread.sendMessage('5');
-            }
-            if (event.getAction() == MotionEvent.ACTION_UP && id.equals("boutonHaut")){
-                TheThread.sendMessage('6');
-                Log.wtf("TEST", "Bouton "+id+" laché in socket if");
-            }
-            if (event.getAction() == MotionEvent.ACTION_DOWN && id.equals("boutonBas")){
-                TheThread.sendMessage('2');
-                Log.wtf("TEST", "Bouton "+id+" laché in socket if");
-            }
-            if (event.getAction() == MotionEvent.ACTION_DOWN && id.equals("boutonGauche")){
-                TheThread.sendMessage('4');
-                Log.wtf("TEST", "Bouton "+id+" laché in socket if");
-            }
-            if (event.getAction() == MotionEvent.ACTION_DOWN && id.equals("boutonDroite")){
-                TheThread.sendMessage('3');
-                Log.wtf("TEST", "Bouton "+id+" laché in socket if");
-            }
-
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     Log.d(TAG, "Bouton " + id + " : ACTION_DOWN");
-//                    try {
-//                        socket.getOutputStream().write('2');
-//                    } catch (IOException e) {
-//                        throw new RuntimeException(e);
-//                    }
+
+                    // Envoyer à la voiture le signal de direction correspondant au bouton pressé
+                    switch (id){
+                        case "boutonHaut":
+//                            TheThread.sendMessage('5');
+                            Log.d(TAG, "Envoyé message AVANCER");
+                        case "boutonBas":
+//                            TheThread.sendMessage('2');
+                            Log.d(TAG, "Envoyé message RECULER");
+                        case "boutonGauche":
+//                            TheThread.sendMessage('4');
+                            Log.d(TAG, "Envoyé message GAUCHE");
+                        case "boutonDroite":
+//                            TheThread.sendMessage('3');
+                            Log.d(TAG, "Envoyé message DROITE");
+                    }
+
                     break;
                 case MotionEvent.ACTION_UP:
                     Log.d(TAG, "Bouton " + id + " : ACTION_UP");
-                    TheThread.sendMessage('6');
 
-
-//                    try {
-//                        socket.getOutputStream().write('0');
-//                    } catch (IOException e) {
-//                        throw new RuntimeException(e);
-//                    }
+                    // Envoyer le signal d'arrêt à la voiture
+//                    TheThread.sendMessage('6');
+                    Log.d(TAG, "Envoyé signal d'arrêt à la voiture");
                     break;
-//                default:
-//                    Log.w(TAG, "WARNING : Unhandled action : Bouton " + id + "; action : "+event.getAction());
-//                    break;
             }
             return true;
         }
