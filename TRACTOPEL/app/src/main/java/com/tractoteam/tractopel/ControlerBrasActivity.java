@@ -22,7 +22,7 @@ public class ControlerBrasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_controler_plateforme);
+        setContentView(R.layout.activity_controler_bras);
 
         Log.d(TAG, "onCreate() from "+TAG);
 
