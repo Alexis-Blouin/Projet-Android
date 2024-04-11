@@ -9,8 +9,8 @@
     <include
         android:id="@+id/include"
         layout="@layout/toolbar_layout"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
     <Button
         android:id="@+id/boutonDroite"
@@ -27,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/boutonHaut"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/boutonGauche"
@@ -44,7 +45,8 @@
         app:layout_constraintEnd_toStartOf="@+id/boutonBas"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
     <Button
         android:id="@+id/boutonHaut"
@@ -79,6 +81,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/boutonDroite"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/boutonObtenirMasse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16sp"
+        android:onClick="ObtenirMasse"
+        android:text="@string/obtenir_masse"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/boutonHaut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.675" />
+
+    <TextView
+        android:id="@+id/textviewMasse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/masse_ici"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/boutonObtenirMasse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include"
+        app:layout_constraintVertical_bias="0.803" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

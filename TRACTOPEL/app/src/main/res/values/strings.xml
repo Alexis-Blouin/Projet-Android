@@ -15,4 +15,6 @@
     <string name="bouton_gauche_plateforme">Tourner à gauche</string>
     <string name="bouton_haut_plateforme">Avancer</string>
     <string name="bouton_bas_plateforme">Reculer</string>
+    <string name="obtenir_masse">Obtenir la masse</string>
+    <string name="masse_ici">La masse apparaîtra ici</string>
 </resources>

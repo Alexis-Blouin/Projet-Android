@@ -39,28 +39,33 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     /**
      * Donner l'ordre d'avancer à la voiture
      */
-    static final int VOITURE_AVANCER = 5;
+    static final char VOITURE_AVANCER = '5';
+
     /**
      * Donner l'ordre de reculer à la voiture
      */
-    static final int VOITURE_RECULER = 2;
+    static final char VOITURE_RECULER = '2';
+
     /**
      * Donner l'ordre de tourner à gauche à la voiture
      */
-    static final int VOITURE_TOURNER_GAUCHE = 4;
+    static final char VOITURE_TOURNER_GAUCHE = '4';
+
     /**
      * Donner l'ordre de tourner à droite à la voiture
      */
-    static final int VOITURE_TOURNER_DROITE = 3;
+    static final char VOITURE_TOURNER_DROITE = '3';
+
     /**
      * Donner l'ordre de s'arrêter à la voiture
      */
-    static final int VOITURE_STOP = 6;
+    static final char VOITURE_STOP = '6';
 
 
     Socket socket;
     String ipAddress = "192.168.0.10";
     int port = 1444;
+
 
     class MonThread implements Runnable {
 
@@ -183,7 +188,7 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
             socketHostService = binder.getService();
             isConnected = true;
 
-            Toast.makeText(ControlerPlateformeActivity.this, "", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(ControlerPlateformeActivity.this, "onServiceConnected: Service was connected", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -194,6 +199,9 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     };
     Intent intent = new Intent(ControlerPlateformeActivity.this, SocketHostService.class);
 
+    public void ObtenirMasse(View view) {
+        socketHostService.debugMsg();
+    }
 
     View.OnTouchListener DirectionButtonsListener = new View.OnTouchListener() {
         @Override
@@ -210,7 +218,8 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
                         case "boutonHaut":
                             Log.w(TAG, "juste avant bind service");
                             bindService(intentToSocketHostService, serviceConnection, Context.BIND_AUTO_CREATE);
-                            Toast.makeText(ControlerPlateformeActivity.this, "Binded to service from Voiture", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ControlerPlateformeActivity.this, "Binded to service from Voiture",
+                                        Toast.LENGTH_SHORT).show();
                             break;
 
                         case "boutonBas":
@@ -219,18 +228,25 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 break;
                             }                            unbindService(serviceConnection);
-                            Toast.makeText(ControlerPlateformeActivity.this, "Unbinded to service from voiture", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ControlerPlateformeActivity.this, "Unbinded to service from voiture",
+                                        Toast.LENGTH_SHORT).show();
                             isConnected = false;
                             socketHostService = null;
                             break;
 
                         case "boutonGauche":
-                            socketHostService.debugTestFunc();
+                            Log.d(TAG, "onTouch: Calling openSocket");
+                            socketHostService.openSocket();
+                            Log.d(TAG, "onTouch: Called openSocket successfully");
                             break;
 
                         case "boutonDroite":
-                            Toast.makeText(ControlerPlateformeActivity.this, "Has service : "+isConnected,
-                                    Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(ControlerPlateformeActivity.this, "Has service : "+isConnected,
+//                                    Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onTouch: Calling closeSocket");
+                            socketHostService.closeSocket();
+                            Log.d(TAG, "onTouch: Called closeSocket successfully");
+
                             break;
                     }
 
