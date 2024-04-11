@@ -46,21 +46,22 @@ void loop() {
           digitalWrite(13,HIGH);
           switch(key){          // Send messages accordingly.
              case 0:Serial.println("S1 OK");
-             servoBras1.write(0);
+             servoBras3.write(0);
                     break;
              case 1:Serial.println("S2 OK");
-             servoBras1.write(90);
+             servoBras3.write(90);
                     break;
              case 2:Serial.println("S3 OK");
-             servoBras1.write(180);
+             servoBras3.write(180);
                     break;
              case 3:Serial.println("S4 OK");
-             servoPince.write(15);
+             //servoBras2.write(90);
              delay(500);
-             servoBras1.write(0);
+             //servoBras1.write(0);
                     break;
              case 4:Serial.println("S5 OK");
-             servoPince.write(80);
+             //servoBras1.write(180);
+             //servoPince.write(80);
                     break;
           }
         }
@@ -70,44 +71,12 @@ void loop() {
 
   // max pince 15 = ouvert 80 = fermé
   //https://wiki.dfrobot.com/RoMeo_BLE__SKU_DFR0305_
-  // put your main code here, to run repeatedly:
-  // servoPince.write(50); // move MG996R's shaft to angle 0°
-  // delay(1000);
-  // servoPince.write(90); // move MG996R's shaft to angle 0°
-  // delay(1000);
-  // servoPince.write(180); // move MG996R's shaft to angle 0°
-  // delay(1000);
-  // servoPince.write(270); // move MG996R's shaft to angle 0°
-  // delay(1000);
-  // servoBase1.write(0); // move MG996R's shaft to angle 90°
-  // servoBase2.write(0); // move MG996R's shaft to angle 90°
-  // servoBras1.write(0); // move MG996R's shaft to angle 90°
-  // servoBras2.write(0); // move MG996R's shaft to angle 90°
-  // servoBras3.write(0); // move MG996R's shaft to angle 90°
-  // delay(2000); // wait for one second
-  // servoPince.write(80); // move MG996R's shaft to angle 45°
-  // servoBase1.write(80); // move MG996R's shaft to angle 45°
-  // servoBase2.write(80); // move MG996R's shaft to angle 45°
-  // servoBras1.write(80); // move MG996R's shaft to angle 45°
-  // servoBras2.write(80); // move MG996R's shaft to angle 45°
-  // servoBras3.write(80); // move MG996R's shaft to angle 45°
-  // delay(2000); // wait for one second 
-  
-  // delay(1000); // wait for one second
-  // servoPince.write(180); // move MG996R's shaft to angle 90°
-  // delay(1000); // wait for one second
-  // servoPince.write(360); // move MG996R's shaft to angle 90°
-  // delay(1000); // wait for one second
-  // servoPince.write(270); // move MG996R's shaft to angle 90°
-  // delay(1000); // wait for one second
-  // servoPince.write(720); // move MG996R's shaft to angle 90°
-  // delay(1000); // wait for one second
-  // servo.write(135); // move MG996R's shaft to angle 135°
-  // delay(1000); // wait for one second
-  // servo.write(180); // move MG996R's shaft to angle 180°
-  // delay(1000); // wait for one second
-  // servo.write(15); // move MG996R's shaft to angle 180°
-  // delay(1000); // wait for one second
+  // servoPince.write(15);
+  // servoBras2.write(270);
+  //servoBase1.write(90);
+  //servoBase2.write(90);
+  //servoBras1.write(90);
+  //servoBras2.write(90);
 }
 
 // To know the pressed button.
