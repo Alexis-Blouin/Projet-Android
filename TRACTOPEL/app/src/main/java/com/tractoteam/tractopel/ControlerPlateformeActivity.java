@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
@@ -61,47 +62,91 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
      */
     static final char VOITURE_STOP = '6';
 
-
-    Socket socket;
+    /**
+     * Adresse IP du robot (fixe, sert à lui envoyer les instructions)
+     */
     String ipAddress = "192.168.0.10";
+    /**
+     * Port sur lequel communiquer
+     */
     int port = 1444;
 
 
-    class MonThread implements Runnable {
-
-        String TAG = this.getClass().getName();
-
-        private char message;
-        Socket socket;
-        DataOutputStream SenderStream;
-
-        @Override
-        public void run() {
-            try {
-                socket = new Socket(ipAddress, port);
-                SenderStream = new DataOutputStream(socket.getOutputStream());
-
-                SenderStream.write(message);
-
-                SenderStream.close();
-                SenderStream.flush();
-                socket.close();
-            }
-            catch (IOException e) {
-                Log.e(TAG, e.toString());
-                throw new RuntimeException(e);
-            }
-        }
-
-        public void sendMessage(char message){
-            Log.d(TAG, "Sent " + message + " to socket");
-            this.message = message;
-            this.run();
-        }
-    }
-    MonThread TheThread;
+//    class MonThread implements Runnable {
+//
+//        String TAG = this.getClass().getName();
+//
+//        private char message;
+//        Socket socket;
+//        DataOutputStream SenderStream;
+//
+//        @Override
+//        public void run() {
+//            try {
+//                socket = new Socket(ipAddress, port);
+//                SenderStream = new DataOutputStream(socket.getOutputStream());
+//
+//                SenderStream.write(message);
+//
+//                SenderStream.close();
+//                SenderStream.flush();
+//                socket.close();
+//            }
+//            catch (IOException e) {
+//                Log.e(TAG, e.toString());
+//                throw new RuntimeException(e);
+//            }
+//        }
+//
+//        public void sendMessage(char message){
+//            Log.d(TAG, "Sent " + message + " to socket");
+//            this.message = message;
+//            this.run();
+//        }
+//    }
+    //MonThread TheThread;
 
     Intent intentToSocketHostService;
+
+    // SocketHostService
+    /**
+     * Réf. au SocketHostService
+     */
+    SocketHostService socketHostService;
+    /**
+     * Indique l'état de la connexion au service
+     */
+    boolean hasBinding = false;
+    /**
+     * Interface permettant le binding
+     */
+    ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            SocketHostService.myBinder binder = (SocketHostService.myBinder) service;
+            socketHostService = binder.getService();
+            hasBinding = true;
+
+            Log.d(TAG, "onServiceConnected: Binded succesfully");
+
+            boolean hasOpenedSocket = socketHostService.openSocket();
+
+            Log.d(TAG, "onServiceConnected: Socket is open ? --> " + hasOpenedSocket);
+
+            if (!hasOpenedSocket)
+                ((TextView) findViewById(R.id.errorIndicatorLabel)).setText(getText(R.string.socket_non_ouvert));
+
+            else
+                ((TextView) findViewById(R.id.errorIndicatorLabel)).setText("");
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            hasBinding = false;
+            Log.w(TAG, "onServiceDisconnected: Service was disconnected abruptly");
+        }
+    };
 
 
     @Override
@@ -113,7 +158,7 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        TheThread = new MonThread();
+        //TheThread = new MonThread();
 
         Log.d(TAG, "onCreate() from "+TAG);
 
@@ -133,20 +178,24 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
         m_toolbar.setTitle(R.string.titre_activite_controle_plateforme);
         m_toolbar.setTitleTextColor(Color.WHITE);
 
+        // Déclaration de l'intent vers le service
         intentToSocketHostService = new Intent(this, SocketHostService.class);
-//        startService(intentToSocketHostService);
 
-//        Toast.makeText(this, "OnCreate Activity", Toast.LENGTH_SHORT).show();
+        // Binding to service
+        Log.d(TAG, "onCreate: Attempting binding to Service");
+        bindService(intentToSocketHostService, serviceConnection, Context.BIND_AUTO_CREATE);
+        Log.d(TAG, "onCreate: Binding successfully called");
 
     }
 
     @Override
     protected void onDestroy() {
 
-//        Toast.makeText(this, "OnDestroy Activity", Toast.LENGTH_SHORT).show();
+        if (hasBinding)
+            unbindService(serviceConnection);
 
-//        unbindService(mServiceConnection);
-//        stopService(intentToSocketHostService);
+        hasBinding = false;
+        socketHostService = null;
 
         super.onDestroy();
     }
@@ -174,33 +223,11 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     }
 
 
-    // ###########################################
-    // ################## DEBUG ##################
-    // ###########################################
-
-    SocketHostService socketHostService;
-    boolean isConnected = false;
-    ServiceConnection serviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            Log.w(TAG, "dans on service connected");
-            SocketHostService.myBinder binder = (SocketHostService.myBinder) service;
-            socketHostService = binder.getService();
-            isConnected = true;
-
-//            Toast.makeText(ControlerPlateformeActivity.this, "onServiceConnected: Service was connected", Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            isConnected = false;
-            Log.w(TAG, "onServiceDisconnected: Service was disconnected abruptly");
-        }
-    };
-    Intent intent = new Intent(ControlerPlateformeActivity.this, SocketHostService.class);
-
     public void ObtenirMasse(View view) {
-        socketHostService.debugMsg();
+
+        // TODO: 15/04/2024 implement function to obtain the mass
+
+//        socketHostService.debugMsg();
     }
 
     View.OnTouchListener DirectionButtonsListener = new View.OnTouchListener() {
@@ -213,46 +240,28 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
                 case MotionEvent.ACTION_DOWN:
                     Log.d(TAG, "Bouton " + id + " : ACTION_DOWN");
 
-                    // Envoyer à la voiture le signal de direction correspondant au bouton pressé
+                    // Envoie à la voiture le signal de direction correspondant au bouton pressé
                     switch (id){
                         case "boutonHaut":
-                            Log.w(TAG, "juste avant bind service");
-                            bindService(intentToSocketHostService, serviceConnection, Context.BIND_AUTO_CREATE);
-                            Toast.makeText(ControlerPlateformeActivity.this, "Binded to service from Voiture",
-                                        Toast.LENGTH_SHORT).show();
+                            socketHostService.sendChar(VOITURE_AVANCER);
                             break;
 
                         case "boutonBas":
-                            if (!isConnected) {
-                                Toast.makeText(ControlerPlateformeActivity.this, "Was not binded from Voiture",
-                                        Toast.LENGTH_SHORT).show();
-                                break;
-                            }                            unbindService(serviceConnection);
-                            Toast.makeText(ControlerPlateformeActivity.this, "Unbinded to service from voiture",
-                                        Toast.LENGTH_SHORT).show();
-                            isConnected = false;
-                            socketHostService = null;
+                            socketHostService.sendChar(VOITURE_RECULER);
                             break;
 
                         case "boutonGauche":
-                            Log.d(TAG, "onTouch: Calling openSocket");
-                            socketHostService.openSocket();
-                            Log.d(TAG, "onTouch: Called openSocket successfully");
+                            socketHostService.sendChar(VOITURE_TOURNER_GAUCHE);
                             break;
 
                         case "boutonDroite":
-//                            Toast.makeText(ControlerPlateformeActivity.this, "Has service : "+isConnected,
-//                                    Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "onTouch: Calling closeSocket");
-                            socketHostService.closeSocket();
-                            Log.d(TAG, "onTouch: Called closeSocket successfully");
-
+                            socketHostService.sendChar(VOITURE_TOURNER_DROITE);
                             break;
                     }
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    // TODO : Envoyer le signal d'arrêt à la voiture
+                    socketHostService.sendChar(VOITURE_STOP);
                     break;
             }
             return true;

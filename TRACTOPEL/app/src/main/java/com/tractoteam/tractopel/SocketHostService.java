@@ -12,7 +12,10 @@ import androidx.annotation.Nullable;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 
 
 public class SocketHostService extends Service {
@@ -35,21 +38,31 @@ public class SocketHostService extends Service {
     }
     myBinder binder = new myBinder();
 
-    void openSocket() {
+    boolean openSocket() {
+
         if (isOpen)
-            return;
+            return isOpen;
 
         try {
-            socket = new Socket(ipAddress, port);
+            socket = new Socket();
+
+//            ipAddress, port
+
+            socket.connect(new InetSocketAddress(ipAddress, port), 5000);
 
             SenderStream = new DataOutputStream(socket.getOutputStream());
 
             isOpen = true;
+            return isOpen;
         }
-        catch (IOException e) {
+        catch (SocketTimeoutException e) {
             Log.wtf(TAG, e);
-//            e.printStackTrace();
-//            Log.wtf(TAG, "wopopop openSocket ERROR ========================");
+            return isOpen;
+        }
+
+        catch (IOException e){
+            Log.wtf(TAG, e);
+            return isOpen;
         }
     }
 
@@ -66,23 +79,20 @@ public class SocketHostService extends Service {
         }
         catch (IOException e) {
             Log.wtf(TAG, e);
-//            e.printStackTrace();
-//            Log.wtf(TAG, "wopopop closeSocket ERROR ========================");
         }
 
     }
 
     void sendChar(char c) {
-        try {
-            SenderStream.write(c);
-            
-            SenderStream.flush();
-        }
-        catch (IOException e) {
-            Log.wtf(TAG, e);
-//            e.printStackTrace();
-//            Log.wtf(TAG, "wopopop sendChar ERROR ========================");
-        }
+        if (isOpen)
+            try {
+                SenderStream.write(c);
+
+                SenderStream.flush();
+            }
+            catch (IOException e) {
+                Log.wtf(TAG, e);
+            }
     }
 
     @Override
@@ -104,6 +114,8 @@ public class SocketHostService extends Service {
 
     @Override
     public void onDestroy() {
+        closeSocket();
+
         super.onDestroy();
 
         Toast.makeText(this, "Destroyed service", Toast.LENGTH_SHORT).show();

@@ -17,4 +17,6 @@
     <string name="bouton_bas_plateforme">Reculer</string>
     <string name="obtenir_masse">Obtenir la masse</string>
     <string name="masse_ici">La masse apparaîtra ici</string>
+    <string name="socket_non_ouvert">La communication avec le robot n\'a pas pu être établie</string>
+    <string name="chargement">Chargement...</string>
 </resources>
