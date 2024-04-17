@@ -11,10 +11,39 @@
 #define PORT 1444
 #define BUFFER_SIZE 104857600
 
+struct ThreadParam
+{
+	struct moteurBras* moteur;
+	int* clientThreadIsRunning;
+};
+
+void* brasThread(void* argp) 
+{ 
+	struct ThreadParam* threadParam = (struct ThreadParam *)argp;
+	
+	for (;;)
+	{
+		printf("Bras d'id : %d", (*(*threadParam).moteur).id);
+		fflush(stdout);
+		usleep(10000);
+		if (! *((*threadParam).clientThreadIsRunning))
+		{
+			return NULL;
+		}
+	}
+	return NULL;
+} 
+
+
 struct Voiture voiture;
 
 void* handle_client(void *arg)
 {
+	int* clientThreadIsRunning = malloc(sizeof(int));
+	*clientThreadIsRunning = 0;
+	struct ThreadParam threadParam;
+	threadParam.clientThreadIsRunning = clientThreadIsRunning;
+	pthread_t client_thread;
 	int client_fd = *((int*) arg);
 	char* buffer = (char*) malloc(BUFFER_SIZE * sizeof(char));
 	printf("received connection\n");
@@ -47,8 +76,25 @@ void* handle_client(void *arg)
 			case '4':
 				gauche(voiture);
 				break;
+
+			case 'a': case 'A':
+				if (*clientThreadIsRunning)
+				{
+						*clientThreadIsRunning = 0;
+						pthread_join(client_thread, NULL);
+				}
+				*clientThreadIsRunning = 1;
+				threadParam.moteur = &base;
+				pthread_create(&client_thread, NULL, brasThread, (void *)&threadParam);
+				break;
 			default:
+
 				stop(voiture);
+				if (*clientThreadIsRunning)
+				{
+					*clientThreadIsRunning = 0;
+					pthread_join(client_thread, NULL);
+				}
 				break;
 		}
 		
@@ -64,6 +110,7 @@ void* handle_client(void *arg)
 int main()
 {
 	voiture = init_voiture();
+	initBras();
 	int server_fd;
 	struct sockaddr_in server_addr;
 
