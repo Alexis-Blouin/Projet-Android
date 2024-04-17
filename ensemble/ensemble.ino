@@ -66,4 +66,5 @@ void loop() {
       valeur += String(nouveauCaractere);
     }
   } 
+  servoPince.write(0);
 }

@@ -24,7 +24,3 @@ void loop() {
   }
   delay(100);
 }
-
-//-103 tête en bas
-//-103.15 plat
-//-102.75 corp
