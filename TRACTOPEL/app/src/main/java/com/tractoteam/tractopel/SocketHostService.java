@@ -2,20 +2,16 @@ package com.tractoteam.tractopel;
 
 import android.app.Service;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 
 
 public class SocketHostService extends Service {
@@ -141,9 +137,9 @@ public class SocketHostService extends Service {
             debugFrwd = true;
         }
         else {
-            Log.d(TAG, "debugMsg: "+ControlerPlateformeActivity.VOITURE_STOP);
+            Log.d(TAG, "debugMsg: "+ControlerPlateformeActivity.VOITURE_STOPPER);
 
-            sendChar(ControlerPlateformeActivity.VOITURE_STOP);
+            sendChar(ControlerPlateformeActivity.VOITURE_STOPPER);
 
             debugFrwd = false;
         }

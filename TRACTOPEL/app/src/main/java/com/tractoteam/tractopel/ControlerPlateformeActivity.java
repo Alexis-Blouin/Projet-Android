@@ -20,15 +20,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
 
 public class ControlerPlateformeActivity extends AppCompatActivity {
 
-    String TAG = this.getClass().getName();
+    String TAG = this.getClass().getSimpleName();
 
     Toolbar m_toolbar;
 
@@ -60,7 +55,7 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     /**
      * Donner l'ordre de s'arrêter à la voiture
      */
-    static final char VOITURE_STOP = '6';
+    static final char VOITURE_STOPPER = '6';
 
     /**
      * Adresse IP du robot (fixe, sert à lui envoyer les instructions)
@@ -185,7 +180,6 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Attempting binding to Service");
         bindService(intentToSocketHostService, serviceConnection, Context.BIND_AUTO_CREATE);
         Log.d(TAG, "onCreate: Binding successfully called");
-
     }
 
     @Override
@@ -225,9 +219,8 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
 
     public void ObtenirMasse(View view) {
 
-        // TODO: 15/04/2024 implement function to obtain the mass
+        // TODO : 15/04/2024 implement function to obtain the mass
 
-//        socketHostService.debugMsg();
     }
 
     View.OnTouchListener DirectionButtonsListener = new View.OnTouchListener() {
@@ -238,7 +231,7 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    Log.d(TAG, "Bouton " + id + " : ACTION_DOWN");
+//                    Log.d(TAG, "Bouton " + id + " : ACTION_DOWN");
 
                     // Envoie à la voiture le signal de direction correspondant au bouton pressé
                     switch (id){
@@ -261,7 +254,7 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
 
                     break;
                 case MotionEvent.ACTION_UP:
-                    socketHostService.sendChar(VOITURE_STOP);
+                    socketHostService.sendChar(VOITURE_STOPPER);
                     break;
             }
             return true;
