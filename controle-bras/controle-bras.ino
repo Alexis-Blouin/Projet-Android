@@ -30,7 +30,7 @@ void setup() {
 }
 
 void loop() {
-  servoBase1.write(0);
+  servoBase1.write(30);
   //Serial.println("80");
   delay(1000);
   //Serial.println("100");

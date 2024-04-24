@@ -1,4 +1,7 @@
 #include "HX711.h"
+#include <Servo.h>
+
+Servo servoPince;
 
 // HX711 circuit wiring
 const int LOADCELL_DOUT_PIN = 3; // Name the DT pin of the XH711
@@ -9,6 +12,8 @@ HX711 scale;
 void setup() {
   Serial.begin(9600);
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN); // The two pins start transmit datas
+
+  servoPince.attach(8);
 }
 
 void loop() {
@@ -16,11 +21,16 @@ void loop() {
   if (scale.is_ready()) {
     long reading = scale.read();
     float conversion = ((reading + 122700.)/ 320200 * 10.)*0.724; // modifie the values regarding your "zero" value and your weight standard
-    Serial.print("HX711 reading: "); // your monitor prints the values reads and begins by "HX711 reading: "
-    Serial.println(conversion);
+    //Serial.print("HX711 reading: "); // your monitor prints the values reads and begins by "HX711 reading: "
+    //Serial.print(interpolateWeight(conversion));
+    float poidPince = 2.50;
+    conversion = (poidPince - conversion) / 10;
+    Serial.println(String(conversion));
     //Serial.println(reading);
   } else {
     Serial.println("HX711 not found.");
   }
   delay(100);
+
+  servoPince.write(80);
 }
