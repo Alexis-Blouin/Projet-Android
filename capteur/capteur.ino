@@ -1,36 +1,31 @@
 #include "HX711.h"
-#include <Servo.h>
 
-Servo servoPince;
-
-// HX711 circuit wiring
-const int LOADCELL_DOUT_PIN = 3; // Name the DT pin of the XH711
-const int LOADCELL_SCK_PIN = 2; // Name the SCK pin of the HX711
+// Déclaration des broches
+const int LOADCELL_DOUT_PIN = 3; // Fil jaune
+const int LOADCELL_SCK_PIN = 2; // Fil vert
 
 HX711 scale;
 
 void setup() {
   Serial.begin(9600);
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN); // The two pins start transmit datas
-
-  servoPince.attach(8);
+  // Démarrage du capteur de tension.
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
 }
 
 void loop() {
 
   if (scale.is_ready()) {
+    // Lecture du capteur.
     long reading = scale.read();
-    float conversion = ((reading + 122700.)/ 320200 * 10.)*0.724; // modifie the values regarding your "zero" value and your weight standard
-    //Serial.print("HX711 reading: "); // your monitor prints the values reads and begins by "HX711 reading: "
-    //Serial.print(interpolateWeight(conversion));
+    // Conversion de la valeur lue en donnée interprétable.
+    float conversion = ((reading + 122700.)/ 320200 * 10.)*0.724;
+    // Mesure initiale avec la pince attachée.
     float poidPince = 2.50;
-    conversion = (poidPince - conversion) / 10;
-    Serial.println(String(conversion));
-    //Serial.println(reading);
+    // On enlève la nouvelle mesure à la mesure de la pince et on divise par 10 pour avoir le poid en grammes.
+    float donnee = (poidPince - conversion) / 10;
+    Serial.println(String(donnee));
   } else {
     Serial.println("HX711 not found.");
   }
   delay(100);
-
-  servoPince.write(80);
 }
