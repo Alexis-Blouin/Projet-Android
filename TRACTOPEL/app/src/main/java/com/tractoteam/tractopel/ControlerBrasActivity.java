@@ -23,19 +23,22 @@ import android.widget.TextView;
 
 public class ControlerBrasActivity extends AppCompatActivity {
 
-    static final char BRAS_OUVRIR_PINCE = 'f';
-    static final char BRAS_FERMER_PINCE = 'F';
-    static final char BRAS_TOURNER_PINCE_GAUCHE = 'e';
-    static final char BRAS_TOURNER_PINCE_DROITE = 'E';
-    static final char BRAS_AXE_3_GAUCHE = 'd';
-    static final char BRAS_AXE_3_DROITE = 'D';
-    static final char BRAS_AXE_4_GAUCHE = 'c';
-    static final char BRAS_AXE_4_DROITE = 'C';
-    static final char BRAS_AXE_5_GAUCHE = 'b';
-    static final char BRAS_AXE_5_DROITE = 'B';
-    static final char BRAS_AXE_6_GAUCHE = 'a';
-    static final char BRAS_AXE_6_DROITE = 'A';
-    static final char BRAS_STOPPER = '6';
+    static final char BRAS_OUVRIR_PINCE =           'f';
+    static final char BRAS_FERMER_PINCE =           'F';
+    static final char BRAS_TOURNER_PINCE_GAUCHE =   'e';
+    static final char BRAS_TOURNER_PINCE_DROITE =   'E';
+    static final char BRAS_AXE_3_GAUCHE =           'D';
+    static final char BRAS_AXE_3_DROITE =           'd';
+    static final char BRAS_AXE_4_GAUCHE =           'c';
+    static final char BRAS_AXE_4_DROITE =           'C';
+    static final char BRAS_AXE_5_GAUCHE =           'B';
+    static final char BRAS_AXE_5_DROITE =           'b';
+    static final char BRAS_AXE_6_GAUCHE =           'A';
+    static final char BRAS_AXE_6_DROITE =           'a';
+    static final char BRAS_STOPPER =                '6';
+    static final char BRAS_METTRE_EN_POSITION =     '6';
+    static final char BRAS_DEMANDER_MASSE =         '6';
+
 
     String TAG = this.getClass().getSimpleName();
 
@@ -242,5 +245,17 @@ public class ControlerBrasActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    public void ObtenirMasse(View view) {
+        socketHostService.sendChar(BRAS_DEMANDER_MASSE);
+    }
+
+    public void MettreEnPosition(View view) {
+        socketHostService.sendChar(BRAS_METTRE_EN_POSITION);
+    }
+
+    public void Stop(View view) {
+        socketHostService.sendChar(BRAS_STOPPER);
     }
 }

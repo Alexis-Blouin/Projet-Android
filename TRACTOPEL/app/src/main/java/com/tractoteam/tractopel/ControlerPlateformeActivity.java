@@ -35,12 +35,12 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     /**
      * Donner l'ordre d'avancer à la voiture
      */
-    static final char VOITURE_AVANCER = '5';
+    static final char VOITURE_AVANCER = '2';
 
     /**
      * Donner l'ordre de reculer à la voiture
      */
-    static final char VOITURE_RECULER = '2';
+    static final char VOITURE_RECULER = '5';
 
     /**
      * Donner l'ordre de tourner à gauche à la voiture
@@ -66,40 +66,6 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
      */
     int port = 1444;
 
-
-//    class MonThread implements Runnable {
-//
-//        String TAG = this.getClass().getName();
-//
-//        private char message;
-//        Socket socket;
-//        DataOutputStream SenderStream;
-//
-//        @Override
-//        public void run() {
-//            try {
-//                socket = new Socket(ipAddress, port);
-//                SenderStream = new DataOutputStream(socket.getOutputStream());
-//
-//                SenderStream.write(message);
-//
-//                SenderStream.close();
-//                SenderStream.flush();
-//                socket.close();
-//            }
-//            catch (IOException e) {
-//                Log.e(TAG, e.toString());
-//                throw new RuntimeException(e);
-//            }
-//        }
-//
-//        public void sendMessage(char message){
-//            Log.d(TAG, "Sent " + message + " to socket");
-//            this.message = message;
-//            this.run();
-//        }
-//    }
-    //MonThread TheThread;
 
     Intent intentToSocketHostService;
 
@@ -152,8 +118,6 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
-        //TheThread = new MonThread();
 
         Log.d(TAG, "onCreate() from "+TAG);
 
@@ -216,13 +180,6 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
         return true;
     }
 
-
-    public void ObtenirMasse(View view) {
-
-        // TODO : 15/04/2024 implement function to obtain the mass
-
-    }
-
     View.OnTouchListener DirectionButtonsListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -231,7 +188,6 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-//                    Log.d(TAG, "Bouton " + id + " : ACTION_DOWN");
 
                     // Envoie à la voiture le signal de direction correspondant au bouton pressé
                     switch (id){

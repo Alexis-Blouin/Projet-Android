@@ -19,6 +19,24 @@
     <string name="masse_ici">La masse apparaîtra ici</string>
     <string name="socket_non_ouvert">La communication avec le robot n\'a pas pu être établie</string>
     <string name="chargement">Chargement...</string>
-    <string name="ouverture_pince">Ouverture Pince</string>
-    <string name="tourner_pince">Tourner Pince</string>
+    <string name="mettre_en_position">Mettre en position</string>
+    <string name="axe1">Ouverture Pince</string>
+    <string name="axe2">Axe Pince</string>
+    <string name="axe3">Axe 1</string>
+    <string name="axe4">Axe 2</string>
+    <string name="axe5">Axe 3</string>
+    <string name="axe6">Axe Base</string>
+    <string name="stop">Stop</string>
+    <string name="refermer_pince">Refermer la pince</string>
+    <string name="ouvrir_pince">Ouvrir la pince</string>
+    <string name="tourner_pince_anti_horaire">Tourner la pince dans le sens anti-horaire</string>
+    <string name="tourner_pince_horaire">Tourner la pince dans le sens horaire</string>
+    <string name="baisser_bras_axe_1">Baisser le bras sur l\'axe 1</string>
+    <string name="baisser_bras_axe_2">Baisser le bras sur l\'axe 2</string>
+    <string name="baisser_bras_axe_3">Baisser le bras sur l\'axe 3</string>
+    <string name="monter_bras_axe_1">Monter le bras sur l\'axe 1</string>
+    <string name="monter_bras_axe_2">Monter le bras sur l\'axe 2</string>
+    <string name="monter_bras_axe_3">Monter le bras sur l\'axe 3</string>
+    <string name="tourner_base_anti_horaire">Tourner la base dans le sens anti-horaire</string>
+    <string name="tourner_base_horaire">Tourner la base dans le sens horaire</string>
 </resources>
