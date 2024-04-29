@@ -39,4 +39,5 @@
     <string name="monter_bras_axe_3">Monter le bras sur l\'axe 3</string>
     <string name="tourner_base_anti_horaire">Tourner la base dans le sens anti-horaire</string>
     <string name="tourner_base_horaire">Tourner la base dans le sens horaire</string>
+    <string name="reset">Reset</string>
 </resources>

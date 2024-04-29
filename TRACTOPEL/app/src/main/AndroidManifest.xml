@@ -16,7 +16,7 @@
         android:theme="@style/Theme.TRACTOPEL"
         tools:targetApi="31">
         <service
-            android:name=".SocketHostService"
+            android:name=".SocketService"
             android:enabled="true"
             android:exported="false"></service>
 

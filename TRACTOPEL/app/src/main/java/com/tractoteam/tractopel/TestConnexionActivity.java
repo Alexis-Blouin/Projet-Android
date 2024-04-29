@@ -55,8 +55,10 @@ public class TestConnexionActivity extends AppCompatActivity {
     }
 
     public void LancerTestConnection(View view) {
-        boolean resultatTest = false;
 
+        // TODO: 29/04/2024 Faire le test de connection au robot
+
+        boolean resultatTest = false;
 
         if (resultatTest){
             resultatTestConnectionTextview.setText(R.string.test_connection_reussi);
@@ -79,13 +81,4 @@ public class TestConnexionActivity extends AppCompatActivity {
         startActivity(intentControlerBrasActivity);
     }
 
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-
-        return true;
-    }
-*/
 }

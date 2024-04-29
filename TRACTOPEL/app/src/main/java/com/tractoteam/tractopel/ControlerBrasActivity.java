@@ -23,27 +23,31 @@ import android.widget.TextView;
 
 public class ControlerBrasActivity extends AppCompatActivity {
 
-    static final char BRAS_OUVRIR_PINCE =           'f';
-    static final char BRAS_FERMER_PINCE =           'F';
-    static final char BRAS_TOURNER_PINCE_GAUCHE =   'e';
-    static final char BRAS_TOURNER_PINCE_DROITE =   'E';
-    static final char BRAS_AXE_3_GAUCHE =           'D';
-    static final char BRAS_AXE_3_DROITE =           'd';
-    static final char BRAS_AXE_4_GAUCHE =           'c';
-    static final char BRAS_AXE_4_DROITE =           'C';
-    static final char BRAS_AXE_5_GAUCHE =           'B';
-    static final char BRAS_AXE_5_DROITE =           'b';
-    static final char BRAS_AXE_6_GAUCHE =           'A';
-    static final char BRAS_AXE_6_DROITE =           'a';
-    static final char BRAS_STOPPER =                '6';
-    static final char BRAS_METTRE_EN_POSITION =     '6';
-    static final char BRAS_DEMANDER_MASSE =         '6';
+    // Liste des codes avec leur correspondance avec le robot
+    static final char BRAS_OUVRIR_PINCE = 'f';
+    static final char BRAS_FERMER_PINCE = 'F';
+    static final char BRAS_TOURNER_PINCE_GAUCHE = 'e';
+    static final char BRAS_TOURNER_PINCE_DROITE = 'E';
+    static final char BRAS_AXE_1_BAISSER = 'D';
+    static final char BRAS_AXE_1_LEVER = 'd';
+    static final char BRAS_AXE_2_BAISSER = 'c';
+    static final char BRAS_AXE_2_LEVER = 'C';
+    static final char BRAS_AXE_3_BAISSER = 'B';
+    static final char BRAS_AXE_3_LEVER = 'b';
+    static final char BRAS_TOURNER_BASE_GAUCHE = 'A';
+    static final char BRAS_TOURNER_BASE_DROITE = 'a';
+    static final char BRAS_STOPPER = '6';
+    static final char BRAS_METTRE_EN_POSITION = '6';
+    static final char BRAS_DEMANDER_MASSE = '6';
+    static final char BRAS_RESET = '6';
 
-
+    // TAG pour les logs
     String TAG = this.getClass().getSimpleName();
 
+    // Toolbar pour la mise en place de la toolbar custom
     Toolbar m_toolbar;
 
+    // Liste des boutons auxquels sera appliqué le onTouchListener
     Button btnSerrerPince;
     Button btnOuvrirPince;
     Button btnTournerPinceGauche;
@@ -57,105 +61,119 @@ public class ControlerBrasActivity extends AppCompatActivity {
     Button btn6Gauche;
     Button btn6Droite;
 
+
     View.OnTouchListener MyOnTouchListener = new View.OnTouchListener() {
+        // Appelé à chaque action par rapport au bouton auxquels il est appliqué
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+
+            // Switch sur les différents types d'actions
             switch (event.getAction())
             {
+                // Ici, le moment ou le bouton est pressé
                 case MotionEvent.ACTION_DOWN:
+                    Log.d(TAG, "onTouch: action ACTION_DOWN");
+                    // Switch sur les ID des boutons, pour faire différentes actions suivant le bouton
                     switch (v.getId())
                     {
+                        // Pour chaque, on envoie le code qui permet de déclencher l'action correspondante du robot
                         case R.id.btnFermerPince:
-                            Log.d(TAG, "onTouch: btnSerrerPince");
-                            socketHostService.sendChar(BRAS_FERMER_PINCE);
+                            Log.d(TAG, "onTouch: btnFermerPince");
+                            socketService.EnvoyerChar(BRAS_FERMER_PINCE);
                             break;
                         case R.id.btnOuvrirPince:
                             Log.d(TAG, "onTouch: btnOuvrirPince");
-                            socketHostService.sendChar(BRAS_OUVRIR_PINCE);
+                            socketService.EnvoyerChar(BRAS_OUVRIR_PINCE);
                             break;
                         case R.id.btnTournerPinceGauche:
                             Log.d(TAG, "onTouch: btnTournerPinceGauche");
-                            socketHostService.sendChar(BRAS_TOURNER_PINCE_GAUCHE);
+                            socketService.EnvoyerChar(BRAS_TOURNER_PINCE_GAUCHE);
                             break;
                         case R.id.btnTournerPinceDroite:
                             Log.d(TAG, "onTouch: btnTournerPinceDroite");
-                            socketHostService.sendChar(BRAS_TOURNER_PINCE_DROITE);
+                            socketService.EnvoyerChar(BRAS_TOURNER_PINCE_DROITE);
                             break;
-                        case R.id.Axe3Gauche:
-                            Log.d(TAG, "onTouch: Axe3Gauche");
-                            socketHostService.sendChar(BRAS_AXE_3_GAUCHE);
+                        case R.id.btnBaisser1:
+                            Log.d(TAG, "onTouch: btnBaisser1");
+                            socketService.EnvoyerChar(BRAS_AXE_1_BAISSER);
                             break;
-                        case R.id.Axe3Droite:
-                            Log.d(TAG, "onTouch: Axe3Droite");
-                            socketHostService.sendChar(BRAS_AXE_3_DROITE);
+                        case R.id.btnLever1:
+                            Log.d(TAG, "onTouch: btnLever1");
+                            socketService.EnvoyerChar(BRAS_AXE_1_LEVER);
                             break;
-                        case R.id.Axe4Gauche:
-                            Log.d(TAG, "onTouch: Axe4Gauche");
-                            socketHostService.sendChar(BRAS_AXE_4_GAUCHE);
+                        case R.id.btnBaisser2:
+                            Log.d(TAG, "onTouch: btnBaisser2");
+                            socketService.EnvoyerChar(BRAS_AXE_2_BAISSER);
                             break;
-                        case R.id.Axe4Droite:
-                            Log.d(TAG, "onTouch: Axe4Droite");
-                            socketHostService.sendChar(BRAS_AXE_4_DROITE);
+                        case R.id.btnLever2:
+                            Log.d(TAG, "onTouch: btnLever2");
+                            socketService.EnvoyerChar(BRAS_AXE_2_LEVER);
                             break;
-                        case R.id.Axe5Gauche:
-                            Log.d(TAG, "onTouch: Axe5Gauche");
-                            socketHostService.sendChar(BRAS_AXE_5_GAUCHE);
+                        case R.id.btnBaisser3:
+                            Log.d(TAG, "onTouch: btnBaisser3");
+                            socketService.EnvoyerChar(BRAS_AXE_3_BAISSER);
                             break;
-                        case R.id.Axe5Droite:
-                            Log.d(TAG, "onTouch: Axe5Droite");
-                            socketHostService.sendChar(BRAS_AXE_5_DROITE);
+                        case R.id.btnLever3:
+                            Log.d(TAG, "onTouch: btnLever3");
+                            socketService.EnvoyerChar(BRAS_AXE_3_LEVER);
                             break;
-                        case R.id.Axe6Gauche:
-                            Log.d(TAG, "onTouch: Axe6Gauche");
-                            socketHostService.sendChar(BRAS_AXE_6_GAUCHE);
+                        case R.id.btnTournerBaseGauche:
+                            Log.d(TAG, "onTouch: btnTournerBaseGauche");
+                            socketService.EnvoyerChar(BRAS_TOURNER_BASE_GAUCHE);
                             break;
-                        case R.id.Axe6Droite:
-                            Log.d(TAG, "onTouch: Axe6Droite");
-                            socketHostService.sendChar(BRAS_AXE_6_DROITE);
+                        case R.id.btnTournerBaseDroit:
+                            Log.d(TAG, "onTouch: btnTournerBaseDroit");
+                            socketService.EnvoyerChar(BRAS_TOURNER_BASE_DROITE);
                             break;
                     }
                     break;
-                case MotionEvent.ACTION_UP:
-                    Log.d(TAG, "onTouch: action UP");
-                    socketHostService.sendChar(BRAS_STOPPER);
-                    break;
 
+                // Ici, le moment ou le bouton est relaché
+                case MotionEvent.ACTION_UP:
+                    Log.d(TAG, "onTouch: action ACTION_UP");
+                    // On envoie le code demandant l'arrêt du mouvement
+                    socketService.EnvoyerChar(BRAS_STOPPER);
+                    break;
             }
             return true;
         }
     };
 
-    Intent intentToSocketHostService;
-    SocketHostService socketHostService;
-    boolean hasBinding = false;
+    // Intent vers les service auquel on va se bind.
+    Intent intentVersSocketService;
 
+    // Référence vers le service une fois récupéré (bindé)
+    SocketService socketService;
+
+    // Permet de savoir si le service est toujours bind
+    boolean possedeBinding = false;
+
+    // Interface qui permet de récupérer la référence vers le service quand on le bind.
     ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Log.w(TAG, "onServiceConnected: 105");
-            SocketHostService.myBinder binder = (SocketHostService.myBinder) service;
-            Log.w(TAG, "onServiceConnected: 107");
-            socketHostService = binder.getService();
-            Log.w(TAG, "onServiceConnected: 109");
-            hasBinding = true;
+            SocketService.monBinder binder = (SocketService.monBinder) service;
+            socketService = binder.obtenirService();
+            possedeBinding = true;
 
             Log.d(TAG, "onServiceConnected: Binded succesfully");
 
-            boolean hasOpenedSocket = socketHostService.openSocket();
+            boolean hasOpenedSocket = socketService.ouvrirSocket();
 
             Log.d(TAG, "onServiceConnected: Socket is open ? --> " + hasOpenedSocket);
 
+            // Permet d'indiquer si la connexion a échoué an l'affichant dans un TextView
             if (!hasOpenedSocket)
-                ((TextView) findViewById(R.id.errorIndicatorLabel)).setText(getText(R.string.socket_non_ouvert));
-
+                ((TextView) findViewById(R.id.erreurIndicateurLabel)).setText(getText(R.string.socket_non_ouvert));
             else
-                ((TextView) findViewById(R.id.errorIndicatorLabel)).setText("");
+                ((TextView) findViewById(R.id.erreurIndicateurLabel)).setText("");
 
         }
 
+        // Appelé si le service est tué ou terminé
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            hasBinding = false;
+            possedeBinding = false;
             Log.w(TAG, "onServiceDisconnected: Service was disconnected abruptly");
         }
     };
@@ -165,9 +183,9 @@ public class ControlerBrasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controler_bras);
 
+        // Police de thread pour utiliser le service bindé
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
 
         Log.d(TAG, "onCreate() from "+TAG);
 
@@ -178,19 +196,21 @@ public class ControlerBrasActivity extends AppCompatActivity {
         m_toolbar.setTitle(R.string.titre_activite_controle_bras);
         m_toolbar.setTitleTextColor(Color.WHITE);
 
+        // Associe les boutons par ID
         btnSerrerPince =  (Button) findViewById(R.id.btnFermerPince);
         btnOuvrirPince = (Button) findViewById(R.id.btnOuvrirPince);
         btnTournerPinceGauche = (Button) findViewById(R.id.btnTournerPinceGauche);
         btnTournerPinceDroite = (Button) findViewById(R.id.btnTournerPinceDroite);
-        btn3Gauche = (Button) findViewById(R.id.Axe3Gauche);
-        btn3Droite = (Button) findViewById(R.id.Axe3Droite);
-        btn4Gauche = (Button) findViewById(R.id.Axe4Gauche);
-        btn4Droite = (Button) findViewById(R.id.Axe4Droite);
-        btn5Gauche = (Button) findViewById(R.id.Axe5Gauche);
-        btn5Droite = (Button) findViewById(R.id.Axe5Droite);
-        btn6Gauche = (Button) findViewById(R.id.Axe6Gauche);
-        btn6Droite = (Button) findViewById(R.id.Axe6Droite);
+        btn3Gauche = (Button) findViewById(R.id.btnBaisser1);
+        btn3Droite = (Button) findViewById(R.id.btnLever1);
+        btn4Gauche = (Button) findViewById(R.id.btnBaisser2);
+        btn4Droite = (Button) findViewById(R.id.btnLever2);
+        btn5Gauche = (Button) findViewById(R.id.btnBaisser3);
+        btn5Droite = (Button) findViewById(R.id.btnLever3);
+        btn6Gauche = (Button) findViewById(R.id.btnTournerBaseGauche);
+        btn6Droite = (Button) findViewById(R.id.btnTournerBaseDroit);
 
+        // Applique le listener aux boutons
         btnSerrerPince.setOnTouchListener(MyOnTouchListener);
         btnOuvrirPince.setOnTouchListener(MyOnTouchListener);
         btnTournerPinceGauche.setOnTouchListener(MyOnTouchListener);
@@ -205,27 +225,29 @@ public class ControlerBrasActivity extends AppCompatActivity {
         btn6Droite.setOnTouchListener(MyOnTouchListener);
 
 
-        // Setup intent
-        intentToSocketHostService = new Intent(this, SocketHostService.class);
+        // Déclaration de l'intent vers le service
+        intentVersSocketService = new Intent(this, SocketService.class);
 
-        // Binding to service
-        Log.d(TAG, "onCreate: Attempting binding to Service");
-        bindService(intentToSocketHostService, serviceConnection, Context.BIND_AUTO_CREATE);
+        // Bind au service
+        Log.d(TAG, "onCreate: Attempting binding call");
+        bindService(intentVersSocketService, serviceConnection, Context.BIND_AUTO_CREATE);
         Log.d(TAG, "onCreate: Binding successfully called");
     }
 
     @Override
     protected void onDestroy() {
 
-        if (hasBinding)
+        // Unbind le service si l'activité est détruite
+        if (possedeBinding)
             unbindService(serviceConnection);
 
-        hasBinding = false;
-        socketHostService = null;
+        possedeBinding = false;
+        socketService = null;
 
         super.onDestroy();
     }
 
+    // Menu custom pour changer de contrôles ou revenir à la page d'accueil
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -248,14 +270,18 @@ public class ControlerBrasActivity extends AppCompatActivity {
     }
 
     public void ObtenirMasse(View view) {
-        socketHostService.sendChar(BRAS_DEMANDER_MASSE);
+        socketService.EnvoyerChar(BRAS_DEMANDER_MASSE);
     }
 
     public void MettreEnPosition(View view) {
-        socketHostService.sendChar(BRAS_METTRE_EN_POSITION);
+        socketService.EnvoyerChar(BRAS_METTRE_EN_POSITION);
     }
 
     public void Stop(View view) {
-        socketHostService.sendChar(BRAS_STOPPER);
+        socketService.EnvoyerChar(BRAS_STOPPER);
+    }
+
+    public void ResetBras(View view) {
+        socketService.EnvoyerChar(BRAS_RESET);
     }
 }

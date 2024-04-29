@@ -67,41 +67,37 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     int port = 1444;
 
 
+    // Intent vers les service auquel on va se bind.
     Intent intentToSocketHostService;
 
-    // SocketHostService
-    /**
-     * Réf. au SocketHostService
-     */
-    SocketHostService socketHostService;
-    /**
-     * Indique l'état de la connexion au service
-     */
+    // Référence vers le service une fois récupéré (bindé)
+    SocketService socketService;
+
+    // Permet de savoir si le service est toujours bind
     boolean hasBinding = false;
-    /**
-     * Interface permettant le binding
-     */
+
+    // Interface qui permet de récupérer la référence vers le service quand on le bind.
     ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            SocketHostService.myBinder binder = (SocketHostService.myBinder) service;
-            socketHostService = binder.getService();
+            SocketService.monBinder binder = (SocketService.monBinder) service;
+            socketService = binder.obtenirService();
             hasBinding = true;
 
             Log.d(TAG, "onServiceConnected: Binded succesfully");
 
-            boolean hasOpenedSocket = socketHostService.openSocket();
+            boolean hasOpenedSocket = socketService.ouvrirSocket();
 
             Log.d(TAG, "onServiceConnected: Socket is open ? --> " + hasOpenedSocket);
 
+            // Permet d'indiquer si la connexion a échoué an l'affichant dans un TextView
             if (!hasOpenedSocket)
-                ((TextView) findViewById(R.id.errorIndicatorLabel)).setText(getText(R.string.socket_non_ouvert));
-
+                ((TextView) findViewById(R.id.erreurIndicateurLabel)).setText(getText(R.string.socket_non_ouvert));
             else
-                ((TextView) findViewById(R.id.errorIndicatorLabel)).setText("");
-
+                ((TextView) findViewById(R.id.erreurIndicateurLabel)).setText("");
         }
 
+        // Appelé si le service est tué ou terminé
         @Override
         public void onServiceDisconnected(ComponentName name) {
             hasBinding = false;
@@ -115,20 +111,23 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controler_plateforme);
 
-
+        // Police de thread pour utiliser le service bindé
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         Log.d(TAG, "onCreate() from "+TAG);
 
+        // Associe les boutons par ID
         boutonDroite = (Button) findViewById(R.id.boutonDroite);
-        boutonDroite.setOnTouchListener(DirectionButtonsListener);
         boutonGauche = (Button) findViewById(R.id.boutonGauche);
-        boutonGauche.setOnTouchListener(DirectionButtonsListener);
         boutonHaut = (Button) findViewById(R.id.boutonHaut);
-        boutonHaut.setOnTouchListener(DirectionButtonsListener);
         boutonBas = (Button) findViewById(R.id.boutonBas);
+
+        // Applique le listener aux boutons
         boutonBas.setOnTouchListener(DirectionButtonsListener);
+        boutonDroite.setOnTouchListener(DirectionButtonsListener);
+        boutonGauche.setOnTouchListener(DirectionButtonsListener);
+        boutonHaut.setOnTouchListener(DirectionButtonsListener);
 
         //Ajout de m_toolbar
         m_toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -138,10 +137,10 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
         m_toolbar.setTitleTextColor(Color.WHITE);
 
         // Déclaration de l'intent vers le service
-        intentToSocketHostService = new Intent(this, SocketHostService.class);
+        intentToSocketHostService = new Intent(this, SocketService.class);
 
-        // Binding to service
-        Log.d(TAG, "onCreate: Attempting binding to Service");
+        // Bind au service
+        Log.d(TAG, "onCreate: Attempting binding call");
         bindService(intentToSocketHostService, serviceConnection, Context.BIND_AUTO_CREATE);
         Log.d(TAG, "onCreate: Binding successfully called");
     }
@@ -149,15 +148,17 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
 
+        // Unbind le service si l'activité est détruite
         if (hasBinding)
             unbindService(serviceConnection);
 
         hasBinding = false;
-        socketHostService = null;
+        socketService = null;
 
         super.onDestroy();
     }
 
+    // Menu custom pour changer de contrôles ou revenir à la page d'accueil
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -192,25 +193,29 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
                     // Envoie à la voiture le signal de direction correspondant au bouton pressé
                     switch (id){
                         case "boutonHaut":
-                            socketHostService.sendChar(VOITURE_AVANCER);
+                            socketService.EnvoyerChar(VOITURE_AVANCER);
                             break;
 
                         case "boutonBas":
-                            socketHostService.sendChar(VOITURE_RECULER);
+                            socketService.EnvoyerChar(VOITURE_RECULER);
                             break;
 
                         case "boutonGauche":
-                            socketHostService.sendChar(VOITURE_TOURNER_GAUCHE);
+                            socketService.EnvoyerChar(VOITURE_TOURNER_GAUCHE);
                             break;
 
                         case "boutonDroite":
-                            socketHostService.sendChar(VOITURE_TOURNER_DROITE);
+                            socketService.EnvoyerChar(VOITURE_TOURNER_DROITE);
                             break;
                     }
 
                     break;
+
+                // Ici, le moment ou le bouton est relaché
                 case MotionEvent.ACTION_UP:
-                    socketHostService.sendChar(VOITURE_STOPPER);
+                    Log.d(TAG, "onTouch: action ACTION_UP");
+                    // On envoie le code demandant l'arrêt du mouvement
+                    socketService.EnvoyerChar(VOITURE_STOPPER);
                     break;
             }
             return true;

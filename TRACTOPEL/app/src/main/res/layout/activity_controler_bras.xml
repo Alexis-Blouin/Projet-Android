@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
-        android:id="@+id/errorIndicatorLabel"
+        android:id="@+id/erreurIndicateurLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/chargement"
@@ -161,7 +161,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/Axe3Gauche"
+                android:id="@+id/btnBaisser1"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"
@@ -189,7 +189,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/Axe3Droite"
+                android:id="@+id/btnLever1"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"
@@ -217,7 +217,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/Axe4Gauche"
+                android:id="@+id/btnBaisser2"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"
@@ -245,7 +245,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/Axe4Droite"
+                android:id="@+id/btnLever2"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"
@@ -273,7 +273,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/Axe5Gauche"
+                android:id="@+id/btnBaisser3"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"
@@ -301,7 +301,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/Axe5Droite"
+                android:id="@+id/btnLever3"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"
@@ -329,7 +329,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/Axe6Gauche"
+                android:id="@+id/btnTournerBaseGauche"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="60sp"
@@ -357,7 +357,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/Axe6Droite"
+                android:id="@+id/btnTournerBaseDroit"
                 style="@style/IconOnlyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="60sp"
@@ -378,15 +378,38 @@
                 app:layout_constraintVertical_bias="0.7" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5sp"
-            android:backgroundTint="#FF0000"
-            android:onClick="Stop"
-            android:text="@string/stop"
-            android:textAllCaps="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginTop="5sp"
+                android:backgroundTint="#FF0000"
+                android:onClick="Stop"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/stop"
+                android:textAllCaps="true" />
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginTop="5sp"
+                android:backgroundTint="#FF0000"
+                android:onClick="ResetBras"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/reset"
+                android:textAllCaps="true" />
+        </LinearLayout>
 
     </LinearLayout>
 

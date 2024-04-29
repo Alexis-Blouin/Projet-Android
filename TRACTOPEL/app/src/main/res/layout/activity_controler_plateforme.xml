@@ -85,7 +85,7 @@
         app:layout_constraintVertical_bias="0.026" />
 
     <TextView
-        android:id="@+id/errorIndicatorLabel"
+        android:id="@+id/erreurIndicateurLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/chargement"
