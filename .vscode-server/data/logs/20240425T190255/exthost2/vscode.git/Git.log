@@ -1,0 +1,106 @@
+2024-04-25 19:03:52.241 [info] Log level: Info
+2024-04-25 19:03:52.241 [info] Validating found git in: "git"
+2024-04-25 19:03:52.241 [info] Using git "2.30.2" from "git"
+2024-04-25 19:03:52.241 [info] > git rev-parse --show-toplevel [829ms]
+2024-04-25 19:03:52.241 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:52.241 [info] > git rev-parse --show-toplevel [198ms]
+2024-04-25 19:03:52.241 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:52.270 [info] > git rev-parse --show-toplevel [34ms]
+2024-04-25 19:03:52.271 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:52.329 [info] > git rev-parse --show-toplevel [23ms]
+2024-04-25 19:03:52.330 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:52.383 [info] > git rev-parse --show-toplevel [17ms]
+2024-04-25 19:03:52.383 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:52.449 [info] > git rev-parse --show-toplevel [19ms]
+2024-04-25 19:03:52.449 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:52.541 [info] > git rev-parse --show-toplevel [41ms]
+2024-04-25 19:03:52.541 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:52.625 [info] > git rev-parse --show-toplevel [33ms]
+2024-04-25 19:03:52.703 [info] > git rev-parse --git-dir --git-common-dir [35ms]
+2024-04-25 19:03:52.983 [info] Open repository: /home/pi/hx711
+2024-04-25 19:03:53.339 [info] > git config --get commit.template [221ms]
+2024-04-25 19:03:53.356 [info] > git rev-parse --show-toplevel [178ms]
+2024-04-25 19:03:53.356 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:53.499 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [49ms]
+2024-04-25 19:03:53.586 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:03:53.602 [info] > git rev-parse refs/remotes/origin/master [14ms]
+2024-04-25 19:03:53.916 [info] > git check-ignore -v -z --stdin [46ms]
+2024-04-25 19:03:53.962 [info] > git status -z -uall [255ms]
+2024-04-25 19:03:54.231 [info] > git merge-base refs/heads/master refs/remotes/origin/master [178ms]
+2024-04-25 19:03:54.322 [info] > git config --get commit.template [115ms]
+2024-04-25 19:03:54.391 [info] > git rev-list --count --left-right refs/heads/master...refs/remotes/origin/master [89ms]
+2024-04-25 19:03:54.491 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [114ms]
+2024-04-25 19:03:54.530 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:03:54.545 [info] > git diff --name-status -z --diff-filter=ADMR ed1da427e61d371b69ccad29f7b816243cd7299d...refs/remotes/origin/master [95ms]
+2024-04-25 19:03:54.561 [info] > git rev-parse refs/remotes/origin/master [31ms]
+2024-04-25 19:03:54.685 [info] > git status -z -uall [86ms]
+2024-04-25 19:03:59.432 [info] > git fetch [6454ms]
+2024-04-25 19:03:59.492 [info] > git rev-parse --show-toplevel [95ms]
+2024-04-25 19:03:59.492 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:03:59.514 [info] > git config --get commit.template [28ms]
+2024-04-25 19:04:01.025 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [66ms]
+2024-04-25 19:04:01.068 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:04:01.317 [info] > git rev-parse refs/remotes/origin/master [249ms]
+2024-04-25 19:04:01.503 [info] > git status -z -uall [154ms]
+2024-04-25 19:07:02.924 [info] > git fetch [1339ms]
+2024-04-25 19:07:03.005 [info] > git config --get commit.template [25ms]
+2024-04-25 19:07:03.189 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [84ms]
+2024-04-25 19:07:03.276 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:07:03.289 [info] > git rev-parse refs/remotes/origin/master [15ms]
+2024-04-25 19:07:03.394 [info] > git status -z -uall [63ms]
+2024-04-25 19:10:04.641 [info] > git fetch [1159ms]
+2024-04-25 19:10:04.726 [info] > git config --get commit.template [31ms]
+2024-04-25 19:10:04.787 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [17ms]
+2024-04-25 19:10:04.831 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:10:04.840 [info] > git rev-parse refs/remotes/origin/master [9ms]
+2024-04-25 19:10:04.946 [info] > git status -z -uall [58ms]
+2024-04-25 19:13:07.570 [info] > git fetch [1097ms]
+2024-04-25 19:13:07.674 [info] > git config --get commit.template [52ms]
+2024-04-25 19:13:07.678 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [13ms]
+2024-04-25 19:13:07.719 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:13:07.729 [info] > git rev-parse refs/remotes/origin/master [10ms]
+2024-04-25 19:13:07.822 [info] > git status -z -uall [52ms]
+2024-04-25 19:14:25.120 [info] > git rev-parse --show-toplevel [67ms]
+2024-04-25 19:14:25.122 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:20:00.731 [info] > git fetch [1076ms]
+2024-04-25 19:20:00.826 [info] > git config --get commit.template [47ms]
+2024-04-25 19:20:00.830 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [11ms]
+2024-04-25 19:20:00.872 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:20:00.881 [info] > git rev-parse refs/remotes/origin/master [8ms]
+2024-04-25 19:20:00.974 [info] > git status -z -uall [52ms]
+2024-04-25 19:23:02.115 [info] > git fetch [1084ms]
+2024-04-25 19:23:02.174 [info] > git config --get commit.template [10ms]
+2024-04-25 19:23:02.227 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [7ms]
+2024-04-25 19:23:02.271 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:23:02.279 [info] > git rev-parse refs/remotes/origin/master [8ms]
+2024-04-25 19:23:02.374 [info] > git status -z -uall [53ms]
+2024-04-25 19:26:03.521 [info] > git fetch [1090ms]
+2024-04-25 19:26:03.579 [info] > git config --get commit.template [12ms]
+2024-04-25 19:26:03.630 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [10ms]
+2024-04-25 19:26:03.670 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:26:03.680 [info] > git rev-parse refs/remotes/origin/master [8ms]
+2024-04-25 19:26:03.772 [info] > git status -z -uall [52ms]
+2024-04-25 19:27:04.951 [info] > git rev-parse --show-toplevel [17ms]
+2024-04-25 19:27:04.953 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:27:05.741 [info] > git rev-parse --show-toplevel [28ms]
+2024-04-25 19:27:05.743 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:27:24.314 [info] > git rev-parse --show-toplevel [61ms]
+2024-04-25 19:27:24.315 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-25 19:29:04.954 [info] > git fetch [1124ms]
+2024-04-25 19:29:05.052 [info] > git config --get commit.template [48ms]
+2024-04-25 19:29:05.056 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [11ms]
+2024-04-25 19:29:05.098 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:29:05.107 [info] > git rev-parse refs/remotes/origin/master [9ms]
+2024-04-25 19:29:05.201 [info] > git status -z -uall [54ms]
+2024-04-25 19:33:55.851 [info] > git fetch [1097ms]
+2024-04-25 19:33:55.948 [info] > git config --get commit.template [50ms]
+2024-04-25 19:33:55.956 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [10ms]
+2024-04-25 19:33:55.997 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:33:56.006 [info] > git rev-parse refs/remotes/origin/master [8ms]
+2024-04-25 19:33:56.099 [info] > git status -z -uall [52ms]
+2024-04-25 19:41:35.320 [info] > git fetch [1152ms]
+2024-04-25 19:41:35.410 [info] > git config --get commit.template [46ms]
+2024-04-25 19:41:35.416 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [10ms]
+2024-04-25 19:41:35.461 [warning] ENOENT: no such file or directory, open '/home/pi/hx711/.git/refs/remotes/origin/master'
+2024-04-25 19:41:35.469 [info] > git rev-parse refs/remotes/origin/master [7ms]
+2024-04-25 19:41:35.564 [info] > git status -z -uall [53ms]

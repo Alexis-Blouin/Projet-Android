@@ -1,0 +1,12 @@
+2024-04-22 20:24:11.304 [info] Extension host with pid 1020 started
+2024-04-22 20:24:11.533 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2024-04-22 20:24:11.596 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2024-04-22 20:24:11.601 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-04-22 20:24:13.710 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-04-22 20:24:13.809 [info] Lock '/home/pi/.vscode-server/data/User/workspaceStorage/1566796d59745773882bd9d053795416/vscode.lock': Lock acquired.
+2024-04-22 20:24:15.604 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-04-22 20:24:15.611 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-04-22 20:24:17.409 [info] ExtensionService#_doActivateExtension ms-vscode.cpptools, startup: false, activationEvent: 'onLanguage:cpp'
+2024-04-22 20:24:22.529 [info] Eager extensions activated
+2024-04-22 20:24:22.532 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-04-22 20:24:22.538 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'

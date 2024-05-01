@@ -1,0 +1,135 @@
+2024-04-18 18:45:24.278 [info] Log level: Info
+2024-04-18 18:45:24.278 [info] Validating found git in: "git"
+2024-04-18 18:45:24.278 [info] Using git "2.30.2" from "git"
+2024-04-18 18:45:24.278 [info] > git rev-parse --show-toplevel [755ms]
+2024-04-18 18:45:24.278 [info] > git rev-parse --git-dir --git-common-dir [212ms]
+2024-04-18 18:45:24.278 [info] Open repository: /home/pi/Projet-Android
+2024-04-18 18:45:24.462 [info] > git rev-parse --show-toplevel [89ms]
+2024-04-18 18:45:24.471 [info] > git config --get commit.template [142ms]
+2024-04-18 18:45:24.548 [info] > git rev-parse --show-toplevel [39ms]
+2024-04-18 18:45:24.595 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [54ms]
+2024-04-18 18:45:24.596 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 18:45:24.697 [info] > git status -z -uall [67ms]
+2024-04-18 18:45:24.787 [info] > git config --get commit.template [22ms]
+2024-04-18 18:45:24.876 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [37ms]
+2024-04-18 18:45:24.877 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 18:45:25.005 [info] > git status -z -uall [93ms]
+2024-04-18 18:45:25.033 [info] > git check-ignore -v -z --stdin [35ms]
+2024-04-18 18:48:32.269 [info] > git fetch [13ms]
+2024-04-18 18:48:32.269 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 18:48:32.336 [info] > git config --get commit.template [35ms]
+2024-04-18 18:48:32.339 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [11ms]
+2024-04-18 18:48:32.339 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 18:48:32.358 [info] > git status -z -uall [4ms]
+2024-04-18 19:05:22.907 [info] > git fetch [12ms]
+2024-04-18 19:05:22.907 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:05:26.046 [info] > git config --get commit.template [3103ms]
+2024-04-18 19:05:26.126 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [3161ms]
+2024-04-18 19:05:26.126 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:05:26.886 [info] > git status -z -uall [725ms]
+2024-04-18 19:05:26.947 [info] > git show --textconv :C/tcp_socket.c [33ms]
+2024-04-18 19:05:26.949 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/tcp_socket.c [14ms]
+2024-04-18 19:05:26.978 [info] > git cat-file -s b8fba59ec80565341b1d29289d23b2a42c13a301 [11ms]
+2024-04-18 19:05:32.544 [info] > git show --textconv :C/bras.h [113ms]
+2024-04-18 19:05:32.552 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/bras.h [75ms]
+2024-04-18 19:05:32.620 [info] > git cat-file -s c300bba441e7da89e533cf1f0c5085a0cc20656f [28ms]
+2024-04-18 19:05:33.846 [info] > git show --textconv :C/bras.c [92ms]
+2024-04-18 19:05:33.853 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/bras.c [50ms]
+2024-04-18 19:05:33.967 [info] > git cat-file -s bcf6d359524502e30885e18b143166e8dc00c6af [72ms]
+2024-04-18 19:05:36.895 [info] > git show --textconv :C/bras.h [43ms]
+2024-04-18 19:05:36.904 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/bras.h [26ms]
+2024-04-18 19:05:36.931 [info] > git cat-file -s c300bba441e7da89e533cf1f0c5085a0cc20656f [6ms]
+2024-04-18 19:20:57.715 [info] > git fetch [11ms]
+2024-04-18 19:20:57.715 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:20:57.782 [info] > git config --get commit.template [25ms]
+2024-04-18 19:20:57.785 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [6ms]
+2024-04-18 19:20:57.785 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:20:57.811 [info] > git status -z -uall [5ms]
+2024-04-18 19:21:07.783 [info] > git show --textconv :C/tcp_socket.c [60ms]
+2024-04-18 19:21:07.798 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/tcp_socket.c [32ms]
+2024-04-18 19:21:07.851 [info] > git cat-file -s b8fba59ec80565341b1d29289d23b2a42c13a301 [13ms]
+2024-04-18 19:23:57.896 [info] > git fetch [28ms]
+2024-04-18 19:23:57.896 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:23:57.974 [info] > git config --get commit.template [26ms]
+2024-04-18 19:23:58.312 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [290ms]
+2024-04-18 19:23:58.313 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:23:58.340 [info] > git status -z -uall [7ms]
+2024-04-18 19:25:37.460 [info] > git show --textconv :C/bras.c [115ms]
+2024-04-18 19:25:37.478 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/bras.c [78ms]
+2024-04-18 19:25:37.540 [info] > git cat-file -s bcf6d359524502e30885e18b143166e8dc00c6af [16ms]
+2024-04-18 19:25:38.019 [info] > git show --textconv :C/bras.h [57ms]
+2024-04-18 19:25:38.032 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/bras.h [22ms]
+2024-04-18 19:25:38.087 [info] > git cat-file -s c300bba441e7da89e533cf1f0c5085a0cc20656f [11ms]
+2024-04-18 19:25:42.553 [info] > git show --textconv :C/tcp_socket.c [480ms]
+2024-04-18 19:25:42.559 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/tcp_socket.c [442ms]
+2024-04-18 19:25:42.593 [info] > git cat-file -s b8fba59ec80565341b1d29289d23b2a42c13a301 [9ms]
+2024-04-18 19:26:58.403 [info] > git fetch [9ms]
+2024-04-18 19:26:58.403 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:26:58.453 [info] > git config --get commit.template [9ms]
+2024-04-18 19:26:58.499 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [9ms]
+2024-04-18 19:26:58.499 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:26:58.529 [info] > git status -z -uall [5ms]
+2024-04-18 19:29:58.565 [info] > git fetch [5ms]
+2024-04-18 19:29:58.566 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:29:58.600 [info] > git config --get commit.template [6ms]
+2024-04-18 19:29:58.631 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [5ms]
+2024-04-18 19:29:58.631 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:29:58.662 [info] > git status -z -uall [5ms]
+2024-04-18 19:30:20.430 [info] > git show --textconv :C/bras.h [44ms]
+2024-04-18 19:30:20.447 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/bras.h [22ms]
+2024-04-18 19:30:20.502 [info] > git cat-file -s c300bba441e7da89e533cf1f0c5085a0cc20656f [14ms]
+2024-04-18 19:30:22.573 [info] > git show --textconv :C/tcp_socket.c [41ms]
+2024-04-18 19:30:22.586 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/tcp_socket.c [21ms]
+2024-04-18 19:30:22.663 [info] > git cat-file -s b8fba59ec80565341b1d29289d23b2a42c13a301 [31ms]
+2024-04-18 19:32:07.551 [info] > git show --textconv :C/bras.h [36ms]
+2024-04-18 19:32:07.561 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/bras.h [19ms]
+2024-04-18 19:32:07.599 [info] > git cat-file -s c300bba441e7da89e533cf1f0c5085a0cc20656f [14ms]
+2024-04-18 19:41:55.966 [info] > git fetch [11ms]
+2024-04-18 19:41:55.967 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:41:56.035 [info] > git config --get commit.template [26ms]
+2024-04-18 19:41:56.037 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [5ms]
+2024-04-18 19:41:56.037 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:41:56.067 [info] > git status -z -uall [5ms]
+2024-04-18 19:51:48.736 [info] > git fetch [8ms]
+2024-04-18 19:51:48.737 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:51:48.814 [info] > git config --get commit.template [38ms]
+2024-04-18 19:51:48.816 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [6ms]
+2024-04-18 19:51:48.816 [info] error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+error: object file .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce is empty
+fatal: loose object 4f26a4853b200f508c6a7bd37cfedaeabd3f7fce (stored in .git/objects/4f/26a4853b200f508c6a7bd37cfedaeabd3f7fce) is corrupt
+2024-04-18 19:51:48.843 [info] > git status -z -uall [5ms]
+2024-04-18 19:51:57.958 [info] > git show --textconv :C/tcp_socket.c [40ms]
+2024-04-18 19:51:57.968 [info] > git ls-files --stage -- /home/pi/Projet-Android/C/tcp_socket.c [16ms]
+2024-04-18 19:51:58.006 [info] > git cat-file -s b8fba59ec80565341b1d29289d23b2a42c13a301 [12ms]
+2024-04-18 19:54:48.899 [info] > git fetch [7ms]
+2024-04-18 19:54:48.899 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-18 19:54:48.984 [info] > git config --get commit.template [25ms]
+2024-04-18 19:54:48.986 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/Raspberry refs/remotes/Raspberry [4ms]
+2024-04-18 19:54:48.986 [info] fatal: not a git repository (or any of the parent directories): .git
+2024-04-18 19:54:49.012 [info] > git status -z -uall [3ms]

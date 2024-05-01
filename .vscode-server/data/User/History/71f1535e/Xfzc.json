@@ -1,0 +1,10 @@
+{
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "git.autofetch": true,
+    "remote.SSH.remotePlatform": {
+        "10.10.212.12": "linux",
+        "10.10.212.13": "linux"
+    }
+}

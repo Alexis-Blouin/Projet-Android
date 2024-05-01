@@ -1,0 +1,6 @@
+!#bin/bash
+
+systemctl start hostapd
+nohup /home/pi/Projet-Android/C/tcp_socket &
+/home/pi/Projet-Android/C/capteur_tension &
+
