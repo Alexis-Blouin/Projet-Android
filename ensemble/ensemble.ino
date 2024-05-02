@@ -24,11 +24,6 @@ void setup() {
   servoBras3.attach(8);
   servoPince.attach(9);
   // Valeur par défaut des moteurs du bras pour le déplacement de la voiture.
-  servoBase1.write(90);
-  servoBase2.write(30);
-  servoBras1.write(0);
-  servoBras2.write(105);
-  servoBras3.write(90);
   servoPince.write(15);
 }
 
@@ -47,7 +42,7 @@ void loop() {
 
       // Action du moteur.
       switch(numeroMoteur){
-        case 1:
+        case 7:
           servoBase1.write(angle);
           break;
         case 2:
