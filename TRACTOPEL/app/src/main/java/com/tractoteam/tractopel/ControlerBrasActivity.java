@@ -21,6 +21,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class ControlerBrasActivity extends AppCompatActivity {
 
     // Liste des codes avec leur correspondance avec le robot
@@ -37,9 +41,9 @@ public class ControlerBrasActivity extends AppCompatActivity {
     static final char BRAS_TOURNER_BASE_GAUCHE = 'A';
     static final char BRAS_TOURNER_BASE_DROITE = 'a';
     static final char BRAS_STOPPER = '6';
-    static final char BRAS_METTRE_EN_POSITION = '6';
-    static final char BRAS_DEMANDER_MASSE = '6';
-    static final char BRAS_RESET = '6';
+    static final char BRAS_METTRE_EN_POSITION_PESEE = 'y';
+    static final char BRAS_DEMANDER_MASSE = 'z';
+    static final char BRAS_RESET = 'x';
 
     // TAG pour les logs
     String TAG = this.getClass().getSimpleName();
@@ -60,6 +64,8 @@ public class ControlerBrasActivity extends AppCompatActivity {
     Button btn5Droite;
     Button btn6Gauche;
     Button btn6Droite;
+
+    TextView texteMasse;
 
 
     View.OnTouchListener MyOnTouchListener = new View.OnTouchListener() {
@@ -210,6 +216,8 @@ public class ControlerBrasActivity extends AppCompatActivity {
         btn6Gauche = (Button) findViewById(R.id.btnTournerBaseGauche);
         btn6Droite = (Button) findViewById(R.id.btnTournerBaseDroit);
 
+        texteMasse = (TextView) findViewById(R.id.TexteMasse);
+
         // Applique le listener aux boutons
         btnSerrerPince.setOnTouchListener(MyOnTouchListener);
         btnOuvrirPince.setOnTouchListener(MyOnTouchListener);
@@ -269,12 +277,38 @@ public class ControlerBrasActivity extends AppCompatActivity {
         return true;
     }
 
-    public void ObtenirMasse(View view) {
+    public void ObtenirMasse(View view) throws InterruptedException {
         socketService.EnvoyerChar(BRAS_DEMANDER_MASSE);
+
+        texteMasse.setText(R.string.chargement);
+
+        final String[] s = new String[1];
+
+        Timer timer = new Timer();
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Log.d(TAG, "run: started run");
+                try {
+                    s[0] = socketService.ObtenirMasse();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                texteMasse.setText(s[0]);
+            }
+        }, 500);
+
+
+//        do {
+//            s[0] = socketService.ObtenirMasse();
+//        } while ( s[0].equals("N/A") && !skip[0]);
+
+//        texteMasse.setText(s[0]);
     }
 
     public void MettreEnPosition(View view) {
-        socketService.EnvoyerChar(BRAS_METTRE_EN_POSITION);
+        socketService.EnvoyerChar(BRAS_METTRE_EN_POSITION_PESEE);
     }
 
     public void Stop(View view) {

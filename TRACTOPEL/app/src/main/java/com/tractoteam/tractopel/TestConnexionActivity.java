@@ -29,14 +29,14 @@ public class TestConnexionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_connection_layout);
+        setContentView(R.layout.accueil_layout);
 
         Log.d(TAG, "onCreate() from "+TAG);
 
 
-        resultatTestConnectionTextview = (TextView) findViewById(R.id.resultatTestConnectionTextview);
+//        resultatTestConnectionTextview = (TextView) findViewById(R.id.resultatTestConnectionTextview);
 
-        lancerTestBouton = (Button) findViewById(R.id.testConnexionBouton);
+//        lancerTestBouton = (Button) findViewById(R.id.testConnexionBouton);
         boutonControlerPlateforme = (Button) findViewById(R.id.controlerPlateforme);
         boutonControlerBras = (Button) findViewById(R.id.controlerBras);
 
@@ -50,28 +50,28 @@ public class TestConnexionActivity extends AppCompatActivity {
         m_toolbar = (Toolbar) findViewById(R.id.toolbar);
         m_toolbar.setTitle("");
         setSupportActionBar(m_toolbar);
-        m_toolbar.setTitle(R.string.titre_activite_test_connexion);
+        m_toolbar.setTitle(R.string.titre_activite_accueil);
         m_toolbar.setTitleTextColor(Color.WHITE);
     }
 
-    public void LancerTestConnection(View view) {
-
-        // TODO: 29/04/2024 Faire le test de connection au robot
-
-        boolean resultatTest = false;
-
-        if (resultatTest){
-            resultatTestConnectionTextview.setText(R.string.test_connection_reussi);
-            resultatTestConnectionTextview.setTextColor(Color.DKGRAY);
-        }
-        else {
-            resultatTestConnectionTextview.setText(R.string.test_connexion_echoue);
-            resultatTestConnectionTextview.setTextColor(Color.RED);
-        }
-
-        boutonControlerBras.setEnabled(true);
-        boutonControlerPlateforme.setEnabled(true);
-    }
+//    public void LancerTestConnection(View view) {
+//
+//        // TODO: 29/04/2024 Faire le test de connection au robot
+//
+//        boolean resultatTest = false;
+//
+//        if (resultatTest){
+//            resultatTestConnectionTextview.setText(R.string.test_connection_reussi);
+//            resultatTestConnectionTextview.setTextColor(Color.DKGRAY);
+//        }
+//        else {
+//            resultatTestConnectionTextview.setText(R.string.test_connexion_echoue);
+//            resultatTestConnectionTextview.setTextColor(Color.RED);
+//        }
+//
+//        boutonControlerBras.setEnabled(true);
+//        boutonControlerPlateforme.setEnabled(true);
+//    }
 
     public void LancerControlePlateforme(View view) {
         startActivity(intentControlerPlateformeActivity);

@@ -7,8 +7,11 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
@@ -16,7 +19,7 @@ import java.net.SocketTimeoutException;
 
 public class SocketService extends Service {
 
-    String TAG = this.getClass().getName();
+    String TAG = this.getClass().getSimpleName();
 
     boolean estOuvert = false;
 
@@ -25,6 +28,8 @@ public class SocketService extends Service {
 
     Socket socket;
     DataOutputStream StreamEnvoi;
+    DataInputStream StreamRececption;
+    BufferedReader bufferedReader;
 
 
     /**
@@ -53,8 +58,13 @@ public class SocketService extends Service {
 
             // Récupère le flux pour envoyer les données
             StreamEnvoi = new DataOutputStream(socket.getOutputStream());
+            StreamRececption = new DataInputStream(socket.getInputStream());
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             estOuvert = true;
+
+            EnvoyerChar(ControlerBrasActivity.BRAS_RESET);
+
             return estOuvert;
         }
         catch (SocketTimeoutException e) {
@@ -66,6 +76,50 @@ public class SocketService extends Service {
             Log.wtf(TAG, e);
             return estOuvert;
         }
+    }
+
+    String ObtenirMasse() throws IOException {
+
+        String donnee = "N/A";
+
+        if (!estOuvert)
+            return donnee;
+        Log.d(TAG, "ObtenirMasse: Le socket est ouvert");
+
+//        try {
+//            Log.d(TAG, "ObtenirMasse: Va tenter la lecture");
+//            donnee = StreamRececption.readUTF();
+//            Log.d(TAG, "ObtenirMasse: Réussi la lecture");
+//        } catch (IOException e) {
+//            Log.e(TAG, "ObtenirMasse: ", e);
+//        }
+
+//        char[] buffer = new char[64];
+//
+//        bufferedReader.read(buffer);
+//
+//        int charsRead = 0;
+//
+//        while ((charsRead = bufferedReader.read(buffer)) != -1) {
+//            donnee += new String(buffer).substring(0, charsRead);
+//        }
+
+
+
+        try {
+            Log.d(TAG, "ObtenirMasse: Try reset");
+            bufferedReader.reset();
+            Log.d(TAG, "ObtenirMasse: Done reset");
+            Log.d(TAG, "ObtenirMasse: bufferedReader.ready()"+bufferedReader.ready());
+            Log.d(TAG, "ObtenirMasse: essayer de lire");
+            donnee = bufferedReader.readLine();
+            Log.d(TAG, "ObtenirMasse: réussi à lire");
+        } catch (IOException e) {
+            Log.e(TAG, "ObtenirMasse: ", e);
+        }
+
+        Log.d(TAG, "ObtenirMasse: "+donnee);
+        return donnee;
     }
 
     /**

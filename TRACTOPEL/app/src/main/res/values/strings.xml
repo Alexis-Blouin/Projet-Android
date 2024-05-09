@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">TRACTOPEL</string>
     <string name="changer_contrôles">Changer Contrôle</string>
     <string name="retourner_au_test_connection">Retour au test de connexion</string>
-    <string name="titre_activite_test_connexion">Test de connexion</string>
+    <string name="titre_activite_accueil">Accueil</string>
     <string name="connexion_instructions">Cliquez sur le bouton suivant pour tester la connexion au Robot</string>
     <string name="connexion_test_bouton_texte">Tester la connexion</string>
     <string name="test_connection_reussi">Test de connexion réussi</string>
@@ -18,14 +18,14 @@
     <string name="obtenir_masse">Obtenir la masse</string>
     <string name="masse_ici">La masse apparaîtra ici</string>
     <string name="socket_non_ouvert">La communication avec le robot n\'a pas pu être établie</string>
-    <string name="chargement">Chargement...</string>
+    <string name="chargement">Chargement…</string>
     <string name="mettre_en_position">Mettre en position</string>
     <string name="axe1">Ouverture Pince</string>
     <string name="axe2">Axe Pince</string>
     <string name="axe3">Axe 1</string>
     <string name="axe4">Axe 2</string>
     <string name="axe5">Axe 3</string>
-    <string name="axe6">Axe Base</string>
+    <string name="axe6">Rotation Base</string>
     <string name="stop">Stop</string>
     <string name="refermer_pince">Refermer la pince</string>
     <string name="ouvrir_pince">Ouvrir la pince</string>
@@ -39,5 +39,6 @@
     <string name="monter_bras_axe_3">Monter le bras sur l\'axe 3</string>
     <string name="tourner_base_anti_horaire">Tourner la base dans le sens anti-horaire</string>
     <string name="tourner_base_horaire">Tourner la base dans le sens horaire</string>
-    <string name="reset">Reset</string>
+    <string name="reinitialiser">Réinitialiser</string>
+    <string name="texte_indication_reseau_accueil">Assurez vous d\'être connecté au réseau Wi-Fi \"Robot Pince\"</string>
 </resources>
