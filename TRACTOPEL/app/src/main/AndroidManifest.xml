@@ -22,12 +22,15 @@
 
         <activity
             android:name=".ControlerPlateformeActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ControlerBrasActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".TestConnexionActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

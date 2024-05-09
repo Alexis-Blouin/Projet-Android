@@ -8,4 +8,5 @@
     <color name="colorPrimaryDark">#009688</color>
 
     <color name="red">#C30000</color>
+    <color name="boutons_couleur_texte">#ECECEC</color>
 </resources>

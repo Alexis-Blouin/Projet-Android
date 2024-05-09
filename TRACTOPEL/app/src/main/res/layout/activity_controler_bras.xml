@@ -395,7 +395,8 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/stop"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:textColor="@color/boutons_couleur_texte" />
 
             <Button
                 android:id="@+id/btnReset"
@@ -408,7 +409,8 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/reinitialiser"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:textColor="@color/boutons_couleur_texte" />
         </LinearLayout>
 
     </LinearLayout>
@@ -444,7 +446,8 @@
                 android:onClick="ObtenirMasse"
                 android:paddingLeft="15sp"
                 android:paddingRight="15sp"
-                android:text="@string/obtenir_masse" />
+                android:text="@string/obtenir_masse"
+                android:textColor="@color/boutons_couleur_texte" />
 
             <Button
                 android:id="@+id/btnMettreEnPosition"
@@ -454,7 +457,8 @@
                 android:onClick="MettreEnPosition"
                 android:paddingLeft="15sp"
                 android:paddingRight="15sp"
-                android:text="@string/mettre_en_position" />
+                android:text="@string/mettre_en_position"
+                android:textColor="@color/boutons_couleur_texte" />
         </LinearLayout>
 
     </LinearLayout>
