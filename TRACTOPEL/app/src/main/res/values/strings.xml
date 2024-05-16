@@ -41,4 +41,5 @@
     <string name="tourner_base_horaire">Tourner la base dans le sens horaire</string>
     <string name="reinitialiser">Réinitialiser</string>
     <string name="texte_indication_reseau_accueil">Assurez vous d\'être connecté au réseau Wi-Fi \"Robot Pince\"</string>
+    <string name="reset_bras">Réinitialiser Bras</string>
 </resources>

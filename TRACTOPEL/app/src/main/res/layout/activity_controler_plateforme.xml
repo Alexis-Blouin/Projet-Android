@@ -21,7 +21,7 @@
         android:onClick="ResetBras"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="@string/reinitialiser"
+        android:text="@string/reset_bras"
         android:textAllCaps="true"
         android:textColor="@color/boutons_couleur_texte"
         app:layout_constraintBottom_toBottomOf="parent"
