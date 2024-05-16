@@ -221,4 +221,8 @@ public class ControlerPlateformeActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    public void ResetBras(View view) {
+        socketService.EnvoyerChar(ControlerBrasActivity.BRAS_RESET);
+    }
 }

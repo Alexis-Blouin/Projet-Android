@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.nio.CharBuffer;
 
 
 public class SocketService extends Service {
@@ -80,46 +81,46 @@ public class SocketService extends Service {
 
     String ObtenirMasse() throws IOException {
 
-        String donnee = "N/A";
-
         if (!estOuvert)
-            return donnee;
+            return "N/A";
         Log.d(TAG, "ObtenirMasse: Le socket est ouvert");
 
-//        try {
-//            Log.d(TAG, "ObtenirMasse: Va tenter la lecture");
-//            donnee = StreamRececption.readUTF();
-//            Log.d(TAG, "ObtenirMasse: Réussi la lecture");
-//        } catch (IOException e) {
-//            Log.e(TAG, "ObtenirMasse: ", e);
+        char[] charBuffer = new char[30];
+
+//        for (int i = 0; i < 30; i++) {
+//            charBuffer[i]='u';
 //        }
-
-//        char[] buffer = new char[64];
-//
-//        bufferedReader.read(buffer);
-//
-//        int charsRead = 0;
-//
-//        while ((charsRead = bufferedReader.read(buffer)) != -1) {
-//            donnee += new String(buffer).substring(0, charsRead);
-//        }
-
-
 
         try {
-            Log.d(TAG, "ObtenirMasse: Try reset");
-            bufferedReader.reset();
-            Log.d(TAG, "ObtenirMasse: Done reset");
+
+
+
             Log.d(TAG, "ObtenirMasse: bufferedReader.ready()"+bufferedReader.ready());
+
+            if (!bufferedReader.ready())
+                return "N/A";
+
             Log.d(TAG, "ObtenirMasse: essayer de lire");
-            donnee = bufferedReader.readLine();
+
+            Log.d(TAG, "ObtenirMasse: A lu"+bufferedReader.read(charBuffer)+"caractères");
             Log.d(TAG, "ObtenirMasse: réussi à lire");
+
+            String donnee = "";
+
+            for (char chr :
+                    charBuffer) {
+                if (chr==' ')
+                    continue;
+                donnee=donnee+chr;
+            }
+
+            Log.d(TAG, "ObtenirMasse: "+donnee);
+            return donnee+"g";
         } catch (IOException e) {
             Log.e(TAG, "ObtenirMasse: ", e);
+            return "N/A";
         }
 
-        Log.d(TAG, "ObtenirMasse: "+donnee);
-        return donnee;
     }
 
     /**
@@ -177,6 +178,9 @@ public class SocketService extends Service {
 
     @Override
     public void onDestroy() {
+
+        EnvoyerChar(ControlerBrasActivity.BRAS_RESET);
+
         fermerSocket();
 
         super.onDestroy();

@@ -13,6 +13,24 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <Button
+        android:id="@+id/btnReset2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5sp"
+        android:backgroundTint="@color/red"
+        android:onClick="ResetBras"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/reinitialiser"
+        android:textAllCaps="true"
+        android:textColor="@color/boutons_couleur_texte"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boutonBas"
+        app:layout_constraintVertical_bias="0.195" />
+
+    <Button
         android:id="@+id/boutonHaut"
         style="@style/IconOnlyButton"
         android:layout_width="75sp"

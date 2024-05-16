@@ -297,7 +297,7 @@ public class ControlerBrasActivity extends AppCompatActivity {
                 }
                 texteMasse.setText(s[0]);
             }
-        }, 500);
+        }, 1000);
 
 
 //        do {

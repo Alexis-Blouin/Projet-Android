@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">TRACTOPEL</string>
     <string name="changer_contrôles">Changer Contrôle</string>
-    <string name="retourner_au_test_connection">Retour au test de connexion</string>
+    <string name="retourner_au_test_connection">Retour à la page d\'accueil</string>
     <string name="titre_activite_accueil">Accueil</string>
     <string name="connexion_instructions">Cliquez sur le bouton suivant pour tester la connexion au Robot</string>
     <string name="connexion_test_bouton_texte">Tester la connexion</string>
