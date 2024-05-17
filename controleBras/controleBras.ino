@@ -32,7 +32,6 @@ void loop() {
   // Tant que monSerial est disponible
   while(monSerial.available()!=0){
     char nouveauCaractere = monSerial.read(); // Lit la donnée au port monSerial
-    Serial.println(nouveauCaractere);
     if(nouveauCaractere == 'f'){ // Si le nouveau caractère est 'f', on traite la chaine de caractères reçue.
 
       // Récupère le numéro du moteur à déplacer.
