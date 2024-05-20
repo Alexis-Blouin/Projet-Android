@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ControlerPlateformeActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar_layout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/btnReset2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5sp"
+        android:backgroundTint="@color/red"
+        android:onClick="ResetBras"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/reset_bras"
+        android:textAllCaps="true"
+        android:textColor="@color/boutons_couleur_texte"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boutonBas"
+        app:layout_constraintVertical_bias="0.195" />
+
+    <Button
+        android:id="@+id/boutonHaut"
+        style="@style/IconOnlyButton"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"
+        android:contentDescription="@string/bouton_haut_plateforme"
+        android:textAlignment="center"
+        app:cornerRadius="15sp"
+        app:icon="@drawable/arrow_up"
+        app:iconSize="70sp"
+        app:layout_constraintBottom_toTopOf="@+id/boutonGauche"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981" />
+
+    <Button
+        android:id="@+id/boutonGauche"
+        style="@style/IconOnlyButton"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"
+        android:contentDescription="@string/bouton_gauche_plateforme"
+        android:textAlignment="center"
+        app:cornerRadius="15sp"
+        app:icon="@drawable/arrow_left"
+        app:iconSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/boutonBas"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491" />
+
+    <Button
+        android:id="@+id/boutonDroite"
+        style="@style/IconOnlyButton"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"
+        android:contentDescription="@string/bouton_droite_plateforme"
+        android:textAlignment="center"
+        app:cornerRadius="15sp"
+        app:icon="@drawable/arrow_right"
+        app:iconSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491" />
+
+    <Button
+        android:id="@+id/boutonBas"
+        style="@style/IconOnlyButton"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"
+        android:contentDescription="@string/bouton_bas_plateforme"
+        android:textAlignment="center"
+        app:cornerRadius="15sp"
+        app:icon="@drawable/arrow_down"
+        app:iconSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boutonDroite"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <TextView
+        android:id="@+id/erreurIndicateurLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chargement"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

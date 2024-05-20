@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name" translatable="false">TRACTOPEL</string>
+    <string name="changer_contrôles">Changer Contrôle</string>
+    <string name="retourner_au_test_connection">Retour à la page d\'accueil</string>
+    <string name="titre_activite_accueil">Accueil</string>
+    <string name="connexion_instructions">Cliquez sur le bouton suivant pour tester la connexion au Robot</string>
+    <string name="connexion_test_bouton_texte">Tester la connexion</string>
+    <string name="test_connection_reussi">Test de connexion réussi</string>
+    <string name="test_connexion_echoue">Test de connexion échoué</string>
+    <string name="controle_plateforme">Contrôler la plateforme</string>
+    <string name="controle_bras">Contrôler le bras</string>
+    <string name="titre_activite_controle_plateforme">Contôle de la plateforme</string>
+    <string name="titre_activite_controle_bras">Contrôle du bras</string>
+    <string name="bouton_droite_plateforme">Tourner à droite</string>
+    <string name="bouton_gauche_plateforme">Tourner à gauche</string>
+    <string name="bouton_haut_plateforme">Avancer</string>
+    <string name="bouton_bas_plateforme">Reculer</string>
+    <string name="obtenir_masse">Obtenir la masse</string>
+    <string name="masse_ici">La masse apparaîtra ici</string>
+    <string name="socket_non_ouvert">La communication avec le robot n\'a pas pu être établie</string>
+    <string name="chargement">Chargement…</string>
+    <string name="mettre_en_position">Mettre en position</string>
+    <string name="axe1">Ouverture Pince</string>
+    <string name="axe2">Axe Pince</string>
+    <string name="axe3">Axe 1</string>
+    <string name="axe4">Axe 2</string>
+    <string name="axe5">Axe 3</string>
+    <string name="axe6">Rotation Base</string>
+    <string name="stop">Stop</string>
+    <string name="refermer_pince">Refermer la pince</string>
+    <string name="ouvrir_pince">Ouvrir la pince</string>
+    <string name="tourner_pince_anti_horaire">Tourner la pince dans le sens anti-horaire</string>
+    <string name="tourner_pince_horaire">Tourner la pince dans le sens horaire</string>
+    <string name="baisser_bras_axe_1">Baisser le bras sur l\'axe 1</string>
+    <string name="baisser_bras_axe_2">Baisser le bras sur l\'axe 2</string>
+    <string name="baisser_bras_axe_3">Baisser le bras sur l\'axe 3</string>
+    <string name="monter_bras_axe_1">Monter le bras sur l\'axe 1</string>
+    <string name="monter_bras_axe_2">Monter le bras sur l\'axe 2</string>
+    <string name="monter_bras_axe_3">Monter le bras sur l\'axe 3</string>
+    <string name="tourner_base_anti_horaire">Tourner la base dans le sens anti-horaire</string>
+    <string name="tourner_base_horaire">Tourner la base dans le sens horaire</string>
+    <string name="reinitialiser">Réinitialiser</string>
+    <string name="texte_indication_reseau_accueil">Assurez vous d\'être connecté au réseau Wi-Fi \"Robot Pince\"</string>
+    <string name="reset_bras">Réinitialiser Bras</string>
+</resources>

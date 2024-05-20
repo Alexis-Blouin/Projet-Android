@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ControlerBrasActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar_layout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/erreurIndicateurLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chargement"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFermerPince"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/refermer_pince"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/arrows_in"
+                app:iconSize="70sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/axe1"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnOuvrirPince"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/ouvrir_pince"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/arrows_out"
+                app:iconSize="70sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnTournerPinceGauche"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/tourner_pince_anti_horaire"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/rotate_left"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/axe2"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnTournerPinceDroite"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/tourner_pince_horaire"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/rotate_right"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBaisser1"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/baisser_bras_axe_1"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/go_down"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/axe3"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnLever1"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/monter_bras_axe_1"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/go_up"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBaisser2"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/baisser_bras_axe_2"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/go_down"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/axe4"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnLever2"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/monter_bras_axe_2"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/go_up"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBaisser3"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/baisser_bras_axe_3"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/go_down"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/axe5"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnLever3"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/monter_bras_axe_3"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/go_up"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnTournerBaseGauche"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/tourner_base_anti_horaire"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/rotate_left"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/axe6"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnTournerBaseDroit"
+                style="@style/IconOnlyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60sp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="3sp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="2sp"
+                android:contentDescription="@string/tourner_base_horaire"
+                android:textAlignment="center"
+                app:cornerRadius="15sp"
+                app:icon="@drawable/rotate_right"
+                app:iconSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/boutonHaut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginTop="5sp"
+                android:backgroundTint="@color/red"
+                android:onClick="Stop"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/stop"
+                android:textAllCaps="true"
+                android:textColor="@color/boutons_couleur_texte" />
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginTop="5sp"
+                android:backgroundTint="@color/red"
+                android:onClick="ResetBras"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/reinitialiser"
+                android:textAllCaps="true"
+                android:textColor="@color/boutons_couleur_texte" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/TexteMasse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5sp"
+            android:text="@string/masse_ici"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnObtenirMasse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5sp"
+                android:onClick="ObtenirMasse"
+                android:paddingLeft="15sp"
+                android:paddingRight="15sp"
+                android:text="@string/obtenir_masse"
+                android:textColor="@color/boutons_couleur_texte" />
+
+            <Button
+                android:id="@+id/btnMettreEnPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5sp"
+                android:onClick="MettreEnPosition"
+                android:paddingLeft="15sp"
+                android:paddingRight="15sp"
+                android:text="@string/mettre_en_position"
+                android:textColor="@color/boutons_couleur_texte" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
