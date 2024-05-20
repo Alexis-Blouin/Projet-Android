@@ -1,1 +1,0 @@
-gcc -pthread tcp_socket.c -o tcp_socket

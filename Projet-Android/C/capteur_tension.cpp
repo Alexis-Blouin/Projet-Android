@@ -13,9 +13,9 @@ int main() {
 
   for(;;)
   {
-    std::ofstream offile("mesure", std::ofstream::out);
-    offile << hx.weight(35) << std::endl;
-    sleep(1);
+    auto str = hx.weight(35);
+    std::ofstream offile("/home/pi/Projet-Android/C/mesure", std::ofstream::out);
+    offile << str << std::endl;
   }
   return 0;
 }

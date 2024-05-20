@@ -21,7 +21,7 @@ struct moteurBras pince;
 
 void initBras()
 {
-	base.id = 1;
+	base.id = 7;
 	base.angle = 1;
 	base.angle_min = 1;
 	base.angle_max = 180;
@@ -58,15 +58,15 @@ int ajouterAngleBras(struct moteurBras *moteur)
 	FILE* monfichier;
 	monfichier = fopen("/dev/ttyAMA0", "w");
 
-	if (moteur->angle < 94)
+	if (moteur->angle < 98)
 	{
-		moteur->angle += 5;
+		moteur->angle += 2;
 		fprintf(monfichier, "%d0%df", moteur->id, moteur->angle);
 		fclose(monfichier);
 		return 0;
 	}
 
-	moteur->angle += 5;
+	moteur->angle += 2;
 	fprintf(monfichier, "%d%df", moteur->id, moteur->angle);
 	
 	fclose(monfichier);
@@ -81,15 +81,15 @@ int reduireAngleBras(struct moteurBras *moteur)
 	FILE* monfichier;
 	monfichier = fopen("/dev/ttyAMA0", "w");
 
-	if (moteur->angle > 104)
+	if (moteur->angle > 102)
 	{
-		moteur->angle -= 5;
+		moteur->angle -= 2;
 		fprintf(monfichier, "%d%df", moteur->id, moteur->angle);
 		fclose(monfichier);
 		return 0;
 	}
 
-	moteur->angle  -= 5;
+	moteur->angle  -= 2;
 	fprintf(monfichier, "%d0%df", moteur->id, moteur->angle);
 	
 	fclose(monfichier);
@@ -107,19 +107,19 @@ int versZeroBras()
 		base.angle = 90;
 	fprintf(monfichier, "%d%df", base.id, base.angle);
 
-		brasEpaule.angle = 20;
+		brasEpaule.angle = 30;
 	fprintf(monfichier, "%d%df", brasEpaule.id, brasEpaule.angle);
 
-		brasCoude.angle = 20;
+		brasCoude.angle = 0;
 	fprintf(monfichier, "%d%df", brasCoude.id, brasCoude.angle);
 
-		brasPoignet.angle = 20;
+		brasPoignet.angle = 105;
 	fprintf(monfichier, "%d%df", brasPoignet.id, brasPoignet.angle);
 
-		rotationPince.angle = 1;
+		rotationPince.angle = 90;
 	fprintf(monfichier, "%d%df", rotationPince.id, rotationPince.angle);
 
-		pince.angle = 1;
+		pince.angle = 15;
 	fprintf(monfichier, "%d%df", pince.id, pince.angle);
 
 	fclose(monfichier);
@@ -134,19 +134,19 @@ int versPeseBras()
 		base.angle = 90;
 	fprintf(monfichier, "%d%df", base.id, base.angle);
 
-		brasEpaule.angle = 20;
+		brasEpaule.angle = 90;
 	fprintf(monfichier, "%d%df", brasEpaule.id, brasEpaule.angle);
 
-		brasCoude.angle = 20;
+		brasCoude.angle = 100;
 	fprintf(monfichier, "%d%df", brasCoude.id, brasCoude.angle);
 
-		brasPoignet.angle = 20;
+		brasPoignet.angle = 180;
 	fprintf(monfichier, "%d%df", brasPoignet.id, brasPoignet.angle);
 
 		rotationPince.angle = 1;
 	fprintf(monfichier, "%d%df", rotationPince.id, rotationPince.angle);
 
-		pince.angle = 1;
+		pince.angle = 80;
 	fprintf(monfichier, "%d%df", pince.id, pince.angle);
 
 	fclose(monfichier);

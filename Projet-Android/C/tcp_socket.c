@@ -44,7 +44,7 @@ void* brasThread(void* argp)
 				return NULL;
 		}
 
-		usleep(500000);
+		usleep(100000);
 		if (! *((*threadParam).clientThreadIsRunning))
 		{
 			return NULL;
@@ -236,11 +236,18 @@ void* handle_client(void *arg)
 				versPeseBras();
 				break;
 			case 'z': case 'Z':
-				
-				FILE* fichier = fopen("mesure", "r");
-				char buffer[30];
-				fscanf(fichier, "%s", buffer);
-				send(client_fd, buffer, 50, 0);
+				{
+					char* buffer = malloc(sizeof(char) * 30);
+					for (int index = 0; index < 30; index++)
+					{
+						buffer[index] = ' ';
+					}
+					FILE* fichier = fopen("/home/pi/Projet-Android/C/mesure", "r");
+					fscanf(fichier, "%sg", buffer);
+					fclose(fichier);
+					send(client_fd, buffer, sizeof(char) * 30, 0);
+					free(buffer);
+				}
 				break;
 			default:
 
