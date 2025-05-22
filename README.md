@@ -1,4 +1,8 @@
 # Cherokey Articulé
+## En
+This project is a project I did with two other persons in a class at college.
+We had a mobile platform with a robotic arm on top of it that was controled by an Arduino, the mobile platform was controled by a Raspberry Pi.
+The goal of this project was to make an Android app so we have the Android app able to connect to the Rasperry Pi and control the platform and the arm.
 
 ## Description
 Ce projet a été réalisé dans le cadre du cours de Développement d'application mobile au cégep de Sept-Îles.
